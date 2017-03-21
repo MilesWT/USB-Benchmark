@@ -206,7 +206,7 @@
 </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="runButton">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -217,14 +217,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>6</pointsize>
+      <pointsize>16</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Run Test</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="saveButton">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -237,7 +237,7 @@
      <string>Save Test</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="deleteButton">
     <property name="geometry">
      <rect>
       <x>10</x>
