@@ -1,0 +1,1 @@
+"C:\Users\rdavi\Anaconda3\Library\bin\pyuic5.bat" Benchmarking_input.ui > Benchmarking_input.py
