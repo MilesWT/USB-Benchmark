@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
@@ -83,7 +86,7 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>81</width>
+      <width>111</width>
       <height>16</height>
      </rect>
     </property>
@@ -102,8 +105,8 @@
      <rect>
       <x>260</x>
       <y>30</y>
-      <width>47</width>
-      <height>13</height>
+      <width>81</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -179,7 +182,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="sliderLabel">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -187,6 +190,9 @@
       <width>47</width>
       <height>13</height>
      </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="text">
      <string>1 kB</string>
@@ -196,9 +202,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>350</y>
       <width>471</width>
-      <height>131</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="plainText">
@@ -210,9 +216,9 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>190</y>
+      <y>250</y>
       <width>271</width>
-      <height>131</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -249,6 +255,39 @@
     <property name="text">
      <string>Delete Test</string>
     </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>203</x>
+      <y>50</y>
+      <width>20</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>210</y>
+      <width>271</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>-- Select USB Device --</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string> </string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
