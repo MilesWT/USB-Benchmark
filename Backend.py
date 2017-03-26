@@ -24,16 +24,26 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
         # All event connections will go here:
         self.ui.runButton.pressed.connect(self.updateText)
-        self.ui.horizontalSlider.valueChanged.connect(self.sliderText)
+        self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
+        self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
+        #self.ui.saveButton.clicked.connect(self.saveTest)
 
     def updateText(self):
         # helper function to display 'running' while running application
         self.ui.runButton.setText("Running")
 
-    def sliderText(self):
-        num = numpy.power(2, self.ui.horizontalSlider.value())
+    def sliderText(self, slider):
+        #update the slider text when it moves
+        num = numpy.power(2, slider.value())
         txt = (str(num) + " KB") if num < 1024 else (str(int(num/1024)) + " MB")
         self.ui.sliderLabel.setText(txt)
+
+
+        self.ui.log.appendPlainText(txt)
+
+    #def saveTest(self):
+   #     for rb in [self.ui.radioButton]
+
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
 
