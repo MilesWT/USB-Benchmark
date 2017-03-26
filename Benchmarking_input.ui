@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
+ <application> -platform windows:dpiawareness=0
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
