@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <application> -platform windows:dpiawareness=0
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
@@ -28,33 +27,7 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0" alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="label_3">
-       <property name="minimumSize">
-        <size>
-         <width>92</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="minimumSize">
-        <size>
-         <width>92</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
+     <item row="2" column="1">
       <widget class="QLabel" name="label_6">
        <property name="minimumSize">
         <size>
@@ -63,11 +36,46 @@
         </size>
        </property>
        <property name="text">
-        <string>3</string>
+        <string>Test 3</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="0" column="1" alignment="Qt::AlignLeft">
+      <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>92</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Test 1</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="indent">
+        <number>-1</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>92</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Test 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
       <widget class="QLabel" name="label_8">
        <property name="minimumSize">
         <size>
@@ -75,6 +83,34 @@
          <height>0</height>
         </size>
        </property>
+       <property name="text">
+        <string>Test 4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QRadioButton" name="radioButton_3">
+       <property name="text">
+        <string>3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QRadioButton" name="radioButton_4">
        <property name="text">
         <string>4</string>
        </property>
@@ -135,6 +171,9 @@
     <property name="pageStep">
      <number>2</number>
     </property>
+    <property name="value">
+     <number>0</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -151,7 +190,7 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="readCheckBox">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -167,7 +206,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_2">
+   <widget class="QCheckBox" name="writeCheckBox">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -183,7 +222,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="sliderLabel">
+   <widget class="QLabel" name="sliderLabelMin">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -195,11 +234,17 @@
     <property name="contextMenuPolicy">
      <enum>Qt::NoContextMenu</enum>
     </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
     <property name="text">
      <string>1 kB</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="log">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -275,7 +320,7 @@
      <rect>
       <x>230</x>
       <y>210</y>
-      <width>271</width>
+      <width>191</width>
       <height>22</height>
      </rect>
     </property>
@@ -289,6 +334,94 @@
       <string> </string>
      </property>
     </item>
+   </widget>
+   <widget class="QCheckBox" name="selectAllCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>80</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select All</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>130</y>
+      <width>160</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="maximum">
+     <number>16</number>
+    </property>
+    <property name="pageStep">
+     <number>2</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="invertedAppearance">
+     <bool>false</bool>
+    </property>
+    <property name="invertedControls">
+     <bool>false</bool>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sliderLabelMax">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>120</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string>1 kB</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="refresh">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>210</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Refresh</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
