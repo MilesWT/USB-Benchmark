@@ -76,14 +76,14 @@ class Ui_MainWindow(object):
         self.label_15.setObjectName("label_15")
         self.gridLayout_2.addWidget(self.label_15, 6, 1, 1, 1)
         self.label_13 = QtWidgets.QLabel(self.centralwidget)
-        self.label_13.setGeometry(QtCore.QRect(30, 20, 111, 21))
+        self.label_13.setGeometry(QtCore.QRect(30, 20, 171, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setUnderline(True)
         self.label_13.setFont(font)
         self.label_13.setObjectName("label_13")
         self.label_16 = QtWidgets.QLabel(self.centralwidget)
-        self.label_16.setGeometry(QtCore.QRect(250, 20, 191, 21))
+        self.label_16.setGeometry(QtCore.QRect(250, 20, 271, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setUnderline(True)
@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "USB Benchmarking Plots"))
         self.label_3.setText(_translate("MainWindow", "Size"))
         self.label_2.setText(_translate("MainWindow", "Device Name"))
         self.label_6.setText(_translate("MainWindow", "Vendor"))
