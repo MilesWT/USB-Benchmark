@@ -14,7 +14,6 @@ def init_savefile_if_missing():
     """Creates savefile if it is missing
     Returns: [nothing]"""
     if not is_non_zero_file("savefile.json"): #init savefile if does not exist
-        print("halp")
         savefile = open("savefile.json", "w")
         initdata = {}
         initdata["savedTests"] = []
@@ -26,7 +25,7 @@ def init_savefile_if_missing():
                 "readCheckBox": "false", #bool
                 "writeCheckBox": "false" #bool
             })
-        json.dump(initdata, savefile, ensure_ascii=False)
+        json.dump(initdata, savefile, ensure_ascii=False, indent=4)
         savefile.close()
 
 
@@ -46,7 +45,7 @@ def save_state(radio_index, name, slider_label_min, slider_label_max, read_check
     data["savedTests"][radio_index - 1]["sliderLabelMax"] = int(slider_label_max)
     data["savedTests"][radio_index - 1]["readCheckBox"] = str(read_check_box)
     data["savedTests"][radio_index - 1]["writeCheckBox"] = str(write_check_box)
-    json.dump(data, savefile, ensure_ascii=False)
+    json.dump(data, savefile, ensure_ascii=False, indent=4)
     savefile.close()
 
 
