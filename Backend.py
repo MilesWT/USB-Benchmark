@@ -31,6 +31,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.refresh.clicked.connect(self.initDevices)
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
+
         #self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
@@ -41,8 +42,9 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         for i in range(self.ui.comboBox.count(),1,-1): #remove the current list
             self.ui.comboBox.removeItem(i)
 
-        for i in range(0, len(self.devices['DeviceID'])): #update with new list
-            self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+        if len(self.devices):
+            for i in range(0, len(self.devices['DeviceID'])): #update with new list
+                self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
 
     def updateText(self):
         # helper function to display 'running' while running application
@@ -54,11 +56,17 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         txt = (str(num) + " KB") if num < 1024 else (str(int(num/1024)) + " MB")
 
         if slider == self.ui.horizontalSlider:
+            if slider.value() > self.ui.horizontalSlider_2.value():
+                self.ui.horizontalSlider_2.setValue(slider.value())
             self.ui.sliderLabelMin.setText(txt)
+            self.ui.log.appendPlainText("Lowest Block Size: "+txt)
         elif slider == self.ui.horizontalSlider_2:
+            if slider.value() < self.ui.horizontalSlider.value():
+                self.ui.horizontalSlider.setValue(slider.value())
             self.ui.sliderLabelMax.setText(txt)
+            self.ui.log.appendPlainText("Highest Block Size: "+txt)
 
-        self.ui.log.appendPlainText(txt)
+
 
     #def saveTest(self):
    #     for rb in [self.ui.radioButton]
