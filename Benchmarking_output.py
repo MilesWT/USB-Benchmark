@@ -102,11 +102,11 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "USB Benchmarking Plots"))
         self.label_2.setText(_translate("MainWindow", "Device Name"))
-        self.label_6.setText(_translate("MainWindow", "Free Space"))
+        self.label_6.setText(_translate("MainWindow", "Description"))
         self.label_3.setText(_translate("MainWindow", "Size"))
         self.label_5.setText(_translate("MainWindow", "Serial Number"))
         self.label_11.setText(_translate("MainWindow", "Mount Point"))
         self.label_9.setText(_translate("MainWindow", "Format"))
         self.label_13.setText(_translate("MainWindow", "Device Info"))
-        self.label_16.setText(_translate("MainWindow", "Benchmark plots"))
+        self.label_16.setText(_translate("MainWindow", "Benchmark Plots (Demo)"))
 

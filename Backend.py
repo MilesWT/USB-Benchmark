@@ -156,16 +156,24 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         self.ui_2 = Benchmarking_output.Ui_MainWindow()
         self.ui_2.setupUi(self)
+
+        self.devices = wmicAPI.getDevices()  # get the updated list of devices
+        print(self.devices)
         pixmap = QtGui.QPixmap('Resources/demo_graph.png')
         self.ui_2.Graph.setPixmap(pixmap)#.scaled(550,225))
 
+        self.setParameters()
+
     def setParameters(self):
-        self.ui_2.deviceName.setText("boooobs")
-        self.ui_2.size.setText("boooobs")
-        self.ui_2.serialNumber.setText("boooobs")
-        self.ui_2.mountPoint.setText("boooobs")
-        self.ui_2.format.setText("boooobs")
-        self.ui_2.freeSpace.setText("boooobs")
+        if len(self.devices):
+            #for i in range(0, len(self.devices['DeviceID'])): #update with new list
+               # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+            self.ui_2.deviceName.setText(str(self.devices['VolumeName'][0]))
+            self.ui_2.size.setText(str(int(int(self.devices['Size'][0])/(1024*1024)))+" MB")
+            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][0]))
+            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][0]))
+            self.ui_2.format.setText(str(self.devices['FileSystem'][0]))
+            self.ui_2.freeSpace.setText(str(self.devices['Description'][0]))
 
 if __name__ == '__main__':
     # This is the first operation  to be run on startup.
