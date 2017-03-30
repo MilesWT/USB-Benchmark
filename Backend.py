@@ -4,10 +4,10 @@ import time
 import numpy
 import pandas
 from PyQt5 import QtGui, QtWidgets, uic
-import Benchmarking_input #import the GUI layout
-import Benchmarking_output #import the GUI layout
-import wmicAPI #import stuff for usb
-import save_state #Creates savefile.json and initializes it, saves to it, and loads from it.
+import Benchmarking_input # import the GUI layout
+import Benchmarking_output # import the GUI layout
+import wmicAPI # import stuff for usb
+import save_state # Creates savefile.json and initializes it, saves to it, and loads from it.
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -16,13 +16,20 @@ from matplotlib.figure import Figure
 class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
     def __init__(self):
-        #initialization functions go here (including globals for this file):
+        # Initialization functions go here (including globals for this file):
         QtWidgets.QMainWindow.__init__(self)
         self.ui = Benchmarking_input.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
+        
+        # Load test label names from savefile.json
+        name1, name2, name3, name4 = save_state.load_all_names()
+        self.ui.lineEdit_1.setText(name1)
+        self.ui.lineEdit_2.setText(name2)
+        self.ui.lineEdit_3.setText(name3)
+        self.ui.lineEdit_4.setText(name4)
 
-        # initialize globals here
+        # Initialize globals here
         self.globalVariables = 0
         self.devices = wmicAPI.getDevices()
         self.initDevices()
@@ -39,7 +46,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
-        #initializes the combo box with all connected devices
+        # Iinitializes the combo box with all connected devices
 
         self.devices = wmicAPI.getDevices() #get the updated list of devices
 
@@ -73,8 +80,6 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
 
     def saveTest(self):
-        print("success")
-    def boob(self):
         if self.ui.radioButton_1.isChecked():
             radio_index = 0
             test_name = self.ui.lineEdit_1.text()
@@ -119,7 +124,6 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             self.ui.lineEdit_4.setText(name)
         else:
             pass
-
 
         self.ui.horizontalSlider.setValue(slider_min)
         self.ui.horizontalSlider_2.setValue(slider_max)
