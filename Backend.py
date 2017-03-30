@@ -7,6 +7,7 @@ from PyQt5 import QtGui, QtWidgets, uic
 import Benchmarking_input #import the GUI layout
 import Benchmarking_output #import the GUI layout
 import wmicAPI #import stuff for usb
+import save_state #Creates savefile.json and initializes it, saves to it, and loads from it.
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -31,8 +32,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.refresh.clicked.connect(self.initDevices)
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
-
-        #self.ui.saveButton.clicked.connect(self.saveTest)
+        self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
         #initializes the combo box with all connected devices
@@ -68,8 +68,28 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
 
 
-    #def saveTest(self):
-   #     for rb in [self.ui.radioButton]
+    def saveTest(self):
+        if self.ui.radioButton_1.isChecked():
+            radio_index = 0
+            test_name = self.ui.lineEdit_1.text()
+        elif self.ui.radioButton_2.isChecked():
+            radio_index = 1
+            test_name = self.ui.lineEdit_2.text()
+        elif self.ui.radioButton_3.isChecked():
+            radio_index = 2
+            test_name = self.ui.lineEdit_3.text()
+        elif self.ui.radioButton_4.isChecked():
+            radio_index = 3
+            test_name = self.ui.lineEdit_4.text()
+        else:
+            pass
+        slider_min = self.ui.horizontalSlider.value()
+        slider_max = self.ui.horizontalSlider_2.value()
+        read_checkbox = self.ui.readCheckBox.isChecked()
+        write_checkbox = self.ui.writeCheckBox.isChecked()
+        save_state.save_state(radio_index, test_name, slider_min, slider_max, read_checkbox, write_checkbox)
+
+
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
