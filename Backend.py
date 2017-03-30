@@ -32,6 +32,10 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.refresh.clicked.connect(self.initDevices)
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
+        self.ui.radioButton_1.toggled.connect(self.loadTest)
+        self.ui.radioButton_2.toggled.connect(self.loadTest)
+        self.ui.radioButton_3.toggled.connect(self.loadTest)
+        self.ui.radioButton_4.toggled.connect(self.loadTest)
         self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
@@ -69,6 +73,8 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
 
     def saveTest(self):
+        print("success")
+    def boob(self):
         if self.ui.radioButton_1.isChecked():
             radio_index = 0
             test_name = self.ui.lineEdit_1.text()
@@ -89,7 +95,36 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         write_checkbox = self.ui.writeCheckBox.isChecked()
         save_state.save_state(radio_index, test_name, slider_min, slider_max, read_checkbox, write_checkbox)
 
+    def loadTest(self):
+        if self.ui.radioButton_1.isChecked():
+            radio_index = 0
+        elif self.ui.radioButton_2.isChecked():
+            radio_index = 1
+        elif self.ui.radioButton_3.isChecked():
+            radio_index = 2
+        elif self.ui.radioButton_4.isChecked():
+            radio_index = 3
+        else:
+            pass
 
+        name, slider_min, slider_max, read_checkbox, write_checkbox = save_state.load_radio_button(radio_index)
+
+        if self.ui.radioButton_1.isChecked():
+            self.ui.lineEdit_1.setText(name)
+        elif self.ui.radioButton_2.isChecked():
+            self.ui.lineEdit_2.setText(name)
+        elif self.ui.radioButton_3.isChecked():
+            self.ui.lineEdit_3.setText(name)
+        elif self.ui.radioButton_4.isChecked():
+            self.ui.lineEdit_4.setText(name)
+        else:
+            pass
+
+
+        self.ui.horizontalSlider.setValue(slider_min)
+        self.ui.horizontalSlider_2.setValue(slider_max)
+        self.ui.readCheckBox.setChecked(read_checkbox)
+        self.ui.writeCheckBox.setChecked(write_checkbox)
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
