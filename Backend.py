@@ -1,27 +1,28 @@
 import sys
+from ast import literal_eval
 import os
 import time
 import numpy
 import pandas
 from PyQt5 import QtGui, QtWidgets, uic
-import Benchmarking_input # import the GUI layout
-import Benchmarking_output # import the GUI layout
-import wmicAPI # import stuff for usb
-import save_state # Creates savefile.json and initializes it, saves to it, and loads from it.
+import Benchmarking_input  # import the GUI layout
+import Benchmarking_output  # import the GUI layout
+import wmicAPI  # import stuff for usb
+import save_state  # Creates savefile.json and initializes it, saves to it, and loads from it.
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
+class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
     def __init__(self):
         # Initialization functions go here (including globals for this file):
         QtWidgets.QMainWindow.__init__(self)
         self.ui = Benchmarking_input.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
-        
+
         # Load test label names from savefile.json
         name1, name2, name3, name4 = save_state.load_all_names()
         self.ui.lineEdit_1.setText(name1)
@@ -29,9 +30,14 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.lineEdit_3.setText(name3)
         self.ui.lineEdit_4.setText(name4)
 
-        # Initialize globals here
+        # initialize globals here
         self.globalVariables = 0
         self.devices = wmicAPI.getDevices()
+        self.ButtonGroup = QtWidgets.QButtonGroup()
+        self.ButtonGroup.addButton(self.ui.radioButton_1, 0)
+        self.ButtonGroup.addButton(self.ui.radioButton_2, 1)
+        self.ButtonGroup.addButton(self.ui.radioButton_3, 2)
+        self.ButtonGroup.addButton(self.ui.radioButton_4, 3)
         self.initDevices()
 
         # All event connections will go here:
@@ -39,14 +45,11 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.refresh.clicked.connect(self.initDevices)
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
-        self.ui.radioButton_1.toggled.connect(self.loadTest)
-        self.ui.radioButton_2.toggled.connect(self.loadTest)
-        self.ui.radioButton_3.toggled.connect(self.loadTest)
-        self.ui.radioButton_4.toggled.connect(self.loadTest)
+        self.ButtonGroup.buttonClicked[int].connect(self.radioButtonClick)
         self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
-        # Iinitializes the combo box with all connected devices
+        #initializes the combo box with all connected devices
 
         self.devices = wmicAPI.getDevices() #get the updated list of devices
 
@@ -77,6 +80,9 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             self.ui.sliderLabelMax.setText(txt)
             self.ui.log.appendPlainText("Highest Block Size: "+txt)
 
+    def radioButtonClick(self):
+        self.saveTest()
+        self.loadTest()
 
 
     def saveTest(self):
@@ -100,35 +106,18 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         write_checkbox = self.ui.writeCheckBox.isChecked()
         save_state.save_state(radio_index, test_name, slider_min, slider_max, read_checkbox, write_checkbox)
 
+
     def loadTest(self):
-        if self.ui.radioButton_1.isChecked():
-            radio_index = 0
-        elif self.ui.radioButton_2.isChecked():
-            radio_index = 1
-        elif self.ui.radioButton_3.isChecked():
-            radio_index = 2
-        elif self.ui.radioButton_4.isChecked():
-            radio_index = 3
-        else:
-            pass
+
+        radio_index = [self.ButtonGroup.buttons()[x].isChecked() for x in
+                          range(len(self.ButtonGroup.buttons()))].index(True)
 
         name, slider_min, slider_max, read_checkbox, write_checkbox = save_state.load_radio_button(radio_index)
 
-        if self.ui.radioButton_1.isChecked():
-            self.ui.lineEdit_1.setText(name)
-        elif self.ui.radioButton_2.isChecked():
-            self.ui.lineEdit_2.setText(name)
-        elif self.ui.radioButton_3.isChecked():
-            self.ui.lineEdit_3.setText(name)
-        elif self.ui.radioButton_4.isChecked():
-            self.ui.lineEdit_4.setText(name)
-        else:
-            pass
-
-        self.ui.horizontalSlider.setValue(slider_min)
-        self.ui.horizontalSlider_2.setValue(slider_max)
-        self.ui.readCheckBox.setChecked(read_checkbox)
-        self.ui.writeCheckBox.setChecked(write_checkbox)
+        self.ui.horizontalSlider.setValue(int(slider_min))
+        self.ui.horizontalSlider_2.setValue(int(slider_max))
+        self.ui.readCheckBox.setChecked(literal_eval(read_checkbox))
+        self.ui.writeCheckBox.setChecked(literal_eval(write_checkbox))
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
