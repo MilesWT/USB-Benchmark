@@ -19,11 +19,11 @@ def init_savefile_if_missing():
         initdata["savedTests"] = []
         for i in range(4):
             initdata["savedTests"].append({
-                "name": "",
+                "name": "Test " + str(i+1),
                 "sliderMin": 0, #int
-                "sliderMax": 0, #int
-                "readCheckBox": "False", #bool
-                "writeCheckBox": "False" #bool
+                "sliderMax": 16, #int
+                "readCheckBox": "True", #bool
+                "writeCheckBox": "True" #bool
             })
         json.dump(initdata, savefile, ensure_ascii=False, indent=4)
         savefile.close()
