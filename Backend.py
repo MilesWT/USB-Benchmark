@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
+serialNum = ''
 
 class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
     def __init__(self):
@@ -64,7 +65,11 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
         if len(self.devices):
             for i in range(0, len(self.devices['DeviceID'])): #update with new list
-                self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+                if str(self.devices['VolumeName'][i]) == '':
+                    devname='**No Name**'
+                else:
+                    devname = str(self.devices['VolumeName'][i])
+                self.ui.comboBox.addItem(devname + "  " + str(self.devices['VolumeName'][i]))
 
     def addText(self,string):
         self.ui.log.appendPlainText(string)
@@ -147,6 +152,8 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.runButton.setText("Running")
 
     def runButtonReleased(self):
+        #serialnum = \
+        print(str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex()-2)]))
         GUI_out.show()
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
@@ -156,20 +163,57 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         self.ui_2 = Benchmarking_output.Ui_MainWindow()
         self.ui_2.setupUi(self)
+
+        self.devices = wmicAPI.getDevices()  # get the updated list of devices
+
+        print(self.devices)
         pixmap = QtGui.QPixmap('Resources/demo_graph.png')
         self.ui_2.Graph.setPixmap(pixmap)#.scaled(550,225))
 
+        self.setParameters()
+
     def setParameters(self):
-        self.ui_2.deviceName.setText("boooobs")
-        self.ui_2.size.setText("boooobs")
-        self.ui_2.serialNumber.setText("boooobs")
-        self.ui_2.mountPoint.setText("boooobs")
-        self.ui_2.format.setText("boooobs")
-        self.ui_2.freeSpace.setText("boooobs")
+        if len(self.devices):
+
+            #for i in range(0, len(self.devices['DeviceID'])): #update with new list
+               # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+            if str(self.devices['VolumeName'][0]) == '':
+                self.ui_2.deviceName.setText('**No Name**')
+            else:
+                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][0]))
+            self.ui_2.size.setText(str(int(int(self.devices['Size'][0])/(1024*1024)))+" MB")
+            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][0]))
+            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][0]))
+            self.ui_2.format.setText(str(self.devices['FileSystem'][0]))
+            self.ui_2.freeSpace.setText(str(self.devices['Description'][0]))
+
+
+
+#Plotting functions are created as separate classes
+class CanvasTemplate(FigureCanvas):
+    #prototype or creating a plot
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+        self.compute_initial_figure()
+        FigureCanvas.__init__(self, fig)
+        self.setParent(parent)
+        FigureCanvas.setSizePolicy(self,
+                                   QtWidgets.QSizePolicy.Expanding,
+                                   QtWidgets.QSizePolicy.Expanding)
+        FigureCanvas.updateGeometry(self)
+
+
+class reliFleet_graph(CanvasTemplate):
+    def compute_initial_figure(self):
+        self.axes.plot(func.xaxis,
+                       func.etaData)
+        self.axes.set_xlabel('Investment in reliability')
+        self.axes.set_ylabel('Fleet Size')
+
 
 if __name__ == '__main__':
     # This is the first operation  to be run on startup.
-    # AKA the 'Main' function
     app = QtWidgets.QApplication(sys.argv)
     GUI_in = InputUi()
     GUI_out = OutputUi()
