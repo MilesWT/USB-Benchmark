@@ -2,7 +2,7 @@ import os
 import time
 import subprocess
 def getDevices():
-    RawDevices = subprocess.check_output("wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem /format:list", shell=True)
+    RawDevices = subprocess.check_output("wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem, freespace /format:list", shell=True)
     Devices = RawDevices.decode().split("\n")
     X = [elem.strip().split("=") for elem in Devices]
     Final = [x for x in X if x != ['']]
