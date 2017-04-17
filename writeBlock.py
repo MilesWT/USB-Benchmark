@@ -23,5 +23,5 @@ def readBlock(fileLocation,blockSize):
     return(timeTaken)
 
 if __name__ == "__main__":
-    print(writeBlock("D",1000))
+    print(writeBlock("D",1024))
     print(readBlock("D:\output_file",1000))
