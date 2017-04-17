@@ -42,25 +42,25 @@ def readFile(fileLocation,blockSize): #inputs: str full fileLocation to access. 
     timeTaken = end-start
     return(timeTaken) #return time taken
 
-def benchmarkDevice(letterDrive,smallFileSize,bigFileSize,blockSize,write=True,read=True):
+def benchmarkDevice(letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,read=True):
     #Write section
     writeTimes = []
     readTimes = []
-    fileSizes =[]
-    for i in range(smallFileSize,bigFileSize):
-        writeTimes.append(writeFile(letterDrive,(2**i)/1024,blockSize))
-        readTimes.append(readFile('%s:\output_file'%letterDrive,blockSize))
-        fileSizes.append(2**i)
+    blockSizes =[]
+    for i in range(smallBlockSize,bigBlockSize+1):
+        writeTimes.append(writeFile(letterDrive,fileSize,2**i))
+        readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
+        blockSizes.append(2**i)
     os.remove('%s:\output_file'%letterDrive)
     if(read and write):
-        return(fileSizes,writeTimes,readTimes)
+        return(blockSizes,writeTimes,readTimes)
     elif(read):
-        return(fileSizes,readTimes)
+        return(blockSizes,readTimes)
     elif(write):
-        return(fileSizes,writeTimes)
+        return(blockSizes,writeTimes)
     else:
-        return(fileSizes)
+        return(blockSizes)
 
 
 if __name__ == "__main__":
-    print(benchmarkDevice("D",0,17,100,False,False))
+    print(benchmarkDevice("D",0,16,100))
