@@ -14,7 +14,8 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-serialNum = ''
+#serialNum = ''
+
 
 class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
     def __init__(self):
@@ -31,7 +32,6 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.lineEdit_3.setText(name3)
         self.ui.lineEdit_4.setText(name4)
 
-
         # initialize globals here
         self.globalVariables = 0
         self.devices = wmicAPI.getDevices()
@@ -45,7 +45,6 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.initDevices()
         self.loadTest()
 
-
         # All event connections will go here:
         self.ui.runButton.pressed.connect(self.runButtonPressed)
         self.ui.runButton.released.connect(self.runButtonReleased)
@@ -56,28 +55,28 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.saveButton.clicked.connect(self.saveTest)
 
     def initDevices(self):
-        #initializes the combo box with all connected devices
+        # initializes the combo box with all connected devices
 
-        self.devices = wmicAPI.getDevices() #get the updated list of devices
+        self.devices = wmicAPI.getDevices()  # get the updated list of devices
 
-        for i in range(self.ui.comboBox.count(), 1, -1): #remove the current list
+        for i in range(self.ui.comboBox.count(), 1, -1):  # remove the current list
             self.ui.comboBox.removeItem(i)
 
         if len(self.devices):
-            for i in range(0, len(self.devices['DeviceID'])): #update with new list
+            for i in range(0, len(self.devices['DeviceID'])):  # update with new list
                 if str(self.devices['VolumeName'][i]) == '':
-                    devname='**No Name**'
+                    devName = '**No Name**'
                 else:
-                    devname = str(self.devices['VolumeName'][i])
-                self.ui.comboBox.addItem(devname + "  " + str(self.devices['VolumeName'][i]))
+                    devName = str(self.devices['VolumeName'][i])
+                self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "   " + devName)
 
-    def addText(self,string):
+    def addText(self, string):
         self.ui.log.appendPlainText(string)
 
     def sliderText(self, slider):
-        #update the slider text when it moves
+        # update the slider text when it moves
         num = numpy.power(2, slider.value())
-        txt = (str(num) + " KB") if num < 1024 else (str(int(num/1024)) + " MB")
+        txt = (str(num) + " KB") if num < 1024 else (str(int(num / 1024)) + " MB")
 
         if slider == self.ui.horizontalSlider:
             if slider.value() > self.ui.horizontalSlider_2.value():
@@ -152,14 +151,15 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.runButton.setText("Running")
 
     def runButtonReleased(self):
-        #serialnum = \
-        print(str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex()-2)]))
+        # serialnum = \
+        serialNum = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
+        GUI_out.setParameters(serialNum)
         GUI_out.show()
 
-class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
 
+class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
     def __init__(self):
-        #initialization functions go here (including globals for this file):
+        # initialization functions go here (including globals for this file):
         QtWidgets.QMainWindow.__init__(self)
         self.ui_2 = Benchmarking_output.Ui_MainWindow()
         self.ui_2.setupUi(self)
@@ -168,30 +168,29 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
 
         print(self.devices)
         pixmap = QtGui.QPixmap('Resources/demo_graph.png')
-        self.ui_2.Graph.setPixmap(pixmap)#.scaled(550,225))
+        self.ui_2.Graph.setPixmap(pixmap)  # .scaled(550,225))
 
-        self.setParameters()
+        #self.setParameters()
 
-    def setParameters(self):
+    def setParameters(self, serialNum):
         if len(self.devices):
-
-            #for i in range(0, len(self.devices['DeviceID'])): #update with new list
-               # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+            devNum = self.devices['VolumeSerialNumber'].index(str(serialNum))
+            # for i in range(0, len(self.devices['DeviceID'])): #update with new list
+            # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
             if str(self.devices['VolumeName'][0]) == '':
                 self.ui_2.deviceName.setText('**No Name**')
             else:
-                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][0]))
-            self.ui_2.size.setText(str(int(int(self.devices['Size'][0])/(1024*1024)))+" MB")
-            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][0]))
-            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][0]))
-            self.ui_2.format.setText(str(self.devices['FileSystem'][0]))
-            self.ui_2.freeSpace.setText(str(self.devices['Description'][0]))
+                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][int(devNum)]))
+            self.ui_2.size.setText(str(int(int(self.devices['Size'][int(devNum)]) / (1024 * 1024))) + " MB")
+            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(devNum)]))
+            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(devNum)]))
+            self.ui_2.format.setText(str(self.devices['FileSystem'][int(devNum)]))
+            self.ui_2.freeSpace.setText(str(self.devices['Description'][int(devNum)]))
 
 
-
-#Plotting functions are created as separate classes
+# Plotting functions are created as separate classes
 class CanvasTemplate(FigureCanvas):
-    #prototype or creating a plot
+    # prototype or creating a plot
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
@@ -212,12 +211,18 @@ class reliFleet_graph(CanvasTemplate):
         self.axes.set_ylabel('Fleet Size')
 
 
+class helperClass():
+    def __init__(self):
+        serialNum = ''
+
+
 if __name__ == '__main__':
     # This is the first operation  to be run on startup.
     app = QtWidgets.QApplication(sys.argv)
     GUI_in = InputUi()
     GUI_out = OutputUi()
+    helperClass()
     ui = Benchmarking_input.Ui_MainWindow()
     GUI_in.show()
-    #GUI_out.show()
+    # GUI_out.show()
     sys.exit(app.exec_())
