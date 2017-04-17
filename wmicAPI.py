@@ -27,7 +27,16 @@ def writeBlock(letterDrive,blockSize):
         fout.truncate()
     timeTaken = end-start
     return(timeTaken)
-# display some lines
+
+def readBlock(fileLocation,blockSize):
+    with open(fileLocation, 'r') as fin:
+        start = time.clock()
+        fin.read(1024*blockSize)
+        end = time.clock()
+    timeTaken = end-start
+    return(timeTaken)
+
 #if __name__ == "__main__":
 #    print(writeBlock("D",1000))
+#   print(readBlock("D:\output_file",1000))
 #if __name__ == "__main__": main()
