@@ -17,26 +17,26 @@ def getDevices():
             myDict[key] = [value]
     return(myDict)
 
-def writeBlock(letterDrive,blockSize):
-    data = bytearray(1024*blockSize)
+def writeBlock(letterDrive,blockSize): #inputs: str letterDrive to access. Size of write
+    data = bytearray(1024*blockSize) #create the array for the data. Must be strictly sized
     for byte in data:
-        byte = 0x88
+        byte = 0xaa #allocate the data to the same values. hex aa is alternating bits
     with open('%s:\output_file'%letterDrive, 'bw+') as fout:
         fout.seek(0)
         start = time.clock()
-        fout.write(data)
+        fout.write(data) #write to file
         end = time.clock()
         fout.truncate()
     timeTaken = end-start
-    return(timeTaken)
+    return(timeTaken) #return time taken
 
-def readBlock(fileLocation,blockSize):
-    with open(fileLocation, 'r') as fin:
+def readBlock(fileLocation,blockSize): #inputs: str full fileLocation to access. Size of read
+    with open(fileLocation, 'r') as fin: #open the file
         start = time.clock()
-        fin.read(1024*blockSize)
+        fin.read(1024*blockSize) #read in up to the blockSize in kB
         end = time.clock()
     timeTaken = end-start
-    return(timeTaken)
+    return(timeTaken) #return time taken
 
 #if __name__ == "__main__":
 #    print(writeBlock("D",1000))
