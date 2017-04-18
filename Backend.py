@@ -168,7 +168,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
 
 
     def runButtonReleased(self):
-        msg = QtWidgets.QMessageBox()
+        msg  = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Critical)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         if self.ui.comboBox.currentIndex() < 2: #if a usb device has not been selected
@@ -195,6 +195,7 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         self.ui_2.setupUi(self)
 
         self.devices = wmicAPI.getDevices()  # get the updated list of devices
+        self.dev_num = 0
 
         print(self.devices)
         #pixmap = QtGui.QPixmap('Resources/demo_graph.png')
@@ -204,22 +205,36 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
 
     def setParameters(self, serial_num):
         if len(self.devices):
-            self.dev_num = self.devices['VolumeSerialNumber'].index(str(serial_num))
-            # for i in range(0, len(self.devices['DeviceID'])): #update with new list
-            # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
-            if str(self.devices['VolumeName'][self.dev_num]) == '':
-                self.ui_2.deviceName.setText('**No Name**')
-            else:
-                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][int(self.dev_num)]))
-            self.ui_2.size.setText(str(int(int(self.devices['Size'][int(self.dev_num)]) / (1024 * 1024))) + " MB")
-            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(self.dev_num)]))
-            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(self.dev_num)]))
-            self.ui_2.format.setText(str(self.devices['FileSystem'][int(self.dev_num)]))
-            self.ui_2.description.setText(str(self.devices['Description'][int(self.dev_num)]))
-            self.ui_2.freeSpace.setText(str(self.devices['FreeSpace'][int(self.dev_num)]))
+            try:
+                self.dev_num = self.devices['VolumeSerialNumber'].index(str(serial_num))
+                # for i in range(0, len(self.devices['DeviceID'])): #update with new list
+                # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
+                if str(self.devices['VolumeName'][self.dev_num]) == '':
+                    self.ui_2.deviceName.setText('**No Name**')
+                else:
+                    self.ui_2.deviceName.setText(str(self.devices['VolumeName'][int(self.dev_num)]))
+                self.ui_2.size.setText(str(int(int(self.devices['Size'][int(self.dev_num)]) / (1024 * 1024))) + " MB")
+                self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(self.dev_num)]))
+                self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(self.dev_num)]))
+                self.ui_2.format.setText(str(self.devices['FileSystem'][int(self.dev_num)]))
+                self.ui_2.description.setText(str(self.devices['Description'][int(self.dev_num)]))
+                self.ui_2.freeSpace.setText(str(self.devices['FreeSpace'][int(self.dev_num)]))
 
-            self.graphing()
+                self.graphing()
+            except ValueError:
+                print('Device Detached')
+                msg = QtWidgets.QMessageBox()
+                msg.setIcon(QtWidgets.QMessageBox.Critical)
+                msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                msg.setText("Device Disconnected! Please reconnect and try again")
+                msg.setWindowTitle("Device Disconnect Error")
+                msg.exec()
 
+                GUI_in.initDevices()
+                #sys.exit(app.exec_())
+        else:
+            print('No Devices attached')
+            sys.exit(app.exec_())
     def graphing(self):
         #print(wmicAPI.writeBlock("G", 1000))
         qqq = ReadGraph(devices=self.devices,dev_num=self.dev_num)

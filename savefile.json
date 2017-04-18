@@ -2,30 +2,30 @@
     "savedTests": [
         {
             "sliderMax": 15,
-            "writeCheckBox": "True",
-            "name": "Bobby",
             "sliderMin": 13,
+            "name": "Bobby",
+            "writeCheckBox": "True",
             "readCheckBox": "True"
         },
         {
             "sliderMax": 16,
-            "writeCheckBox": "True",
-            "name": "Test 2wwww",
             "sliderMin": 11,
+            "name": "Test 2wwww",
+            "writeCheckBox": "True",
             "readCheckBox": "False"
         },
         {
             "sliderMax": 10,
-            "writeCheckBox": "True",
-            "name": "Test 3",
             "sliderMin": 4,
+            "name": "Test 3",
+            "writeCheckBox": "True",
             "readCheckBox": "True"
         },
         {
             "sliderMax": 16,
-            "writeCheckBox": "True",
-            "name": "Test 4",
             "sliderMin": 3,
+            "name": "Test 4",
+            "writeCheckBox": "True",
             "readCheckBox": "True"
         }
     ]
