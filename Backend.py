@@ -215,7 +215,8 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
             self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(self.dev_num)]))
             self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(self.dev_num)]))
             self.ui_2.format.setText(str(self.devices['FileSystem'][int(self.dev_num)]))
-            self.ui_2.freeSpace.setText(str(self.devices['Description'][int(self.dev_num)]))
+            self.ui_2.description.setText(str(self.devices['Description'][int(self.dev_num)]))
+            self.ui_2.freeSpace.setText(str(self.devices['FreeSpace'][int(self.dev_num)]))
 
             self.graphing()
 
@@ -291,6 +292,7 @@ class ReadGraph(FigureCanvas):
             self.ax1.set_ylabel('Write Speed (sec)', color='r')
             self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
         #self.ax2.yaxis.set_major_formatter(mtick.FormatStrFormatter('%4f'))
+
 
 
 if __name__ == '__main__':
