@@ -5,6 +5,7 @@ import time
 import numpy
 import pandas
 from PyQt5 import QtGui, QtWidgets, uic
+from datetime import datetime
 import Benchmarking_input  # import the GUI layout
 import Benchmarking_output  # import the GUI layout
 import wmicAPI  # import stuff for usb
@@ -218,7 +219,8 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
                 self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(self.dev_num)]))
                 self.ui_2.format.setText(str(self.devices['FileSystem'][int(self.dev_num)]))
                 self.ui_2.description.setText(str(self.devices['Description'][int(self.dev_num)]))
-                self.ui_2.freeSpace.setText(str(self.devices['FreeSpace'][int(self.dev_num)]))
+                self.ui_2.freeSpace.setText(str(int(int(self.devices['FreeSpace'][int(self.dev_num)]) / (1024 * 1024))) + " MB")
+                self.ui_2.dateTime.setText(str(datetime.now()))
 
                 self.graphing()
             except ValueError:
