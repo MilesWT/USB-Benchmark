@@ -17,13 +17,16 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>50</y>
       <width>701</width>
       <height>331</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
      <property name="leftMargin">
       <number>1</number>
      </property>
@@ -34,6 +37,9 @@
       <number>1</number>
      </property>
      <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <property name="spacing">
       <number>1</number>
      </property>
     </layout>

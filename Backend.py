@@ -47,6 +47,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.sliderText(self.ui.horizontalSlider)
         self.sliderText(self.ui.horizontalSlider_2)
         self.GUI_out = []
+        self.test_name = ''
 
         # All event connections will go here:
         self.ui.runButton.pressed.connect(self.runButtonPressed)
@@ -116,21 +117,22 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             index = self.radio_index
 
         if index == 0:
-            test_name = self.ui.lineEdit_1.text()
+            self.test_name = self.ui.lineEdit_1.text()
         elif index == 1:
-            test_name = self.ui.lineEdit_2.text()
+            self.test_name = self.ui.lineEdit_2.text()
         elif index == 2:
-            test_name = self.ui.lineEdit_3.text()
+            self.test_name = self.ui.lineEdit_3.text()
         elif index == 3:
-            test_name = self.ui.lineEdit_4.text()
+            self.test_name = self.ui.lineEdit_4.text()
         else:
             pass
         slider_min = self.ui.horizontalSlider.value()
         slider_max = self.ui.horizontalSlider_2.value()
         read_checkbox = self.ui.readCheckBox.isChecked()
         write_checkbox = self.ui.writeCheckBox.isChecked()
-        save_state.save_state(index, test_name, slider_min, slider_max, read_checkbox, write_checkbox)
-        self.addText("\r\nSaved Test: " + test_name)
+        save_state.save_state(index, self.test_name, slider_min, slider_max, read_checkbox, write_checkbox)
+        self.addText("\r\nSaved Test: " + self.test_name)
+
 
     def loadTest(self):
         name, slider_min, slider_max, read_checkbox, write_checkbox = save_state.load_radio_button(self.radio_index)
@@ -186,6 +188,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             self.GUI_out.setParameters(serial_num)
             self.GUI_out.show()
             self.ui.runButton.setText("Run Test")
+            self.addText(self.test_name + " Test Run ")
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
@@ -241,6 +244,7 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         #print(wmicAPI.writeBlock("G", 1000))
         qqq = ReadGraph(devices=self.devices,dev_num=self.dev_num)
         self.ui_2.gridLayout.addWidget(qqq)
+        #self.ui_2.qqq.tight_layout(ReadGraph.fig)
 
 
 # Plotting functions are created as separate classes
@@ -249,9 +253,8 @@ class ReadGraph(FigureCanvas):
     def __init__(self, devices=[], dev_num=0, parent=None, width=5, height=4, dpi=100):
         #fig = Figure(figsize=(width, height), dpi=dpi)
 
-        fig = Figure()
-        #fig.remove()
-        fig.clf()
+        self.fig = Figure()
+
 
         self.file_size = 100 #100MB file
         self.block_size_data = []
@@ -262,13 +265,14 @@ class ReadGraph(FigureCanvas):
         self.write = GUI_in.ui.writeCheckBox.isChecked()
 
         #self.ax1.close()
-        self.ax1 = fig.add_subplot(111)
-        self.ax2 = fig.add_subplot(111)
+        self.ax1 = self.fig.add_subplot(111)
+        self.ax2 = self.fig.add_subplot(111)
+
         self.ax1.cla()
         self.ax2.cla()
 
         self.compute_initial_figure(devices, dev_num)
-        FigureCanvas.__init__(self, fig)
+        FigureCanvas.__init__(self, self.fig)
         self.setParent(parent)
         # FigureCanvas.setSizePolicy(self,
         #                            QtWidgets.QSizePolicy.Expanding,
@@ -302,6 +306,9 @@ class ReadGraph(FigureCanvas):
                 self.ax2 = self.ax1.twinx()
                 self.ax2.plot(self.block_size_data, self.write_data, label='Write', color='r')
                 self.ax2.set_ylabel('Write Speed (sec)', color='r')
+                #self.ax1.tight_layout()
+                #self.ax2.tight_layout()
+
         elif self.write:
             self.ax1.plot(self.block_size_data, self.write_data, label='Write', color='r')
             self.ax1.set_xscale('log', basex=2)
@@ -309,6 +316,7 @@ class ReadGraph(FigureCanvas):
             self.ax1.set_ylabel('Write Speed (sec)', color='r')
             self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
         #self.ax2.yaxis.set_major_formatter(mtick.FormatStrFormatter('%4f'))
+        self.fig.tight_layout(rect=[0.05, 0.05, 0.95, 0.95])
 
 
 
