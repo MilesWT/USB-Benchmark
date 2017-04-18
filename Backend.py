@@ -235,7 +235,7 @@ class ReadGraph(FigureCanvas):
         #fig.remove()
         fig.clf()
 
-        self.file_size = 10 #10MB file
+        self.file_size = 100 #100MB file
         self.block_size_data = []
         self.read_data = []
         self.write_data = []

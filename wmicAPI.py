@@ -44,12 +44,19 @@ def readFile(fileLocation,blockSize): #inputs: str full fileLocation to access. 
 
 def benchmarkDevice(letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,read=True):
     #Write section
+    writeflag = True
     writeTimes = []
     readTimes = []
     blockSizes =[]
     for i in range(smallBlockSize,bigBlockSize+1):
-        writeTimes.append(writeFile(letterDrive,fileSize,2**i))
-        readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
+        if write:
+            writeTimes.append(writeFile(letterDrive,fileSize,2**i))
+            writeflag = False
+        elif writeflag:
+            writeFile(letterDrive, fileSize, 2 ** 8)
+            writeflag = False
+        if read:
+            readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
         blockSizes.append(2**i)
     os.remove('%s:\output_file'%letterDrive)
     # if(read and write):
