@@ -13,8 +13,7 @@ import save_state  # Creates savefile.json and initializes it, saves to it, and 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-
-#serialNum = ''
+import matplotlib.ticker as mtick
 
 
 class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
@@ -24,7 +23,6 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui = Benchmarking_input.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
-
 
         # Load test label names from savefile.json
         name1, name2, name3, name4 = save_state.load_all_names()
@@ -47,6 +45,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.loadTest()
         self.sliderText(self.ui.horizontalSlider)
         self.sliderText(self.ui.horizontalSlider_2)
+        self.GUI_out = []
 
         # All event connections will go here:
         self.ui.runButton.pressed.connect(self.runButtonPressed)
@@ -84,6 +83,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
                 else:
                     devName = str(self.devices['VolumeName'][i])
                 self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "   " + devName)
+            self.ui.comboBox.setCurrentIndex(2)
 
     def addText(self, string):
         self.ui.log.appendPlainText(string)
@@ -164,19 +164,27 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
     def runButtonPressed(self):
         # helper function to display 'running' while running application
         self.ui.runButton.setText("Running")
+        self.saveTest()
+
 
     def runButtonReleased(self):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Critical)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         if self.ui.comboBox.currentIndex() < 2: #if a usb device has not been selected
-            msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.Critical)
             msg.setText("Please select a valid USB Storage Device")
             msg.setWindowTitle("Selection Error")
-            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec()
-        else:
+        elif self.ui.writeCheckBox.isChecked() is not True and self.ui.readCheckBox.isChecked() is not True:
+            msg.setText("Please Select Read and/or Write for Tests to be Run")
+            msg.setWindowTitle("Selection Error")
+            msg.exec()
+        else:  #run
             serial_num = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
-            GUI_out.setParameters(serial_num)
-            GUI_out.show()
+            self.GUI_out = OutputUi()
+            self.GUI_out.setParameters(serial_num)
+            self.GUI_out.show()
+            self.ui.runButton.setText("Run Test")
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
@@ -222,12 +230,25 @@ class ReadGraph(FigureCanvas):
     # prototype or creating a plot
     def __init__(self, devices=[], dev_num=0, parent=None, width=5, height=4, dpi=100):
         #fig = Figure(figsize=(width, height), dpi=dpi)
+
         fig = Figure()
+        #fig.remove()
+        fig.clf()
+
         self.file_size = 10 #10MB file
         self.block_size_data = []
         self.read_data = []
         self.write_data = []
-        self.ax1= fig.add_subplot(111)
+
+        self.read = GUI_in.ui.readCheckBox.isChecked()
+        self.write = GUI_in.ui.writeCheckBox.isChecked()
+
+        #self.ax1.close()
+        self.ax1 = fig.add_subplot(111)
+        self.ax2 = fig.add_subplot(111)
+        self.ax1.cla()
+        self.ax2.cla()
+
         self.compute_initial_figure(devices, dev_num)
         FigureCanvas.__init__(self, fig)
         self.setParent(parent)
@@ -237,6 +258,9 @@ class ReadGraph(FigureCanvas):
         FigureCanvas.updateGeometry(self)
 
     def compute_initial_figure(self, devices, dev_num):
+        self.ax1.cla()
+        self.ax2.cla()
+
         self.block_size_data, self.write_data, self.read_data = wmicAPI.benchmarkDevice(
             letterDrive=str(devices['DeviceID'][dev_num]).strip(':'),
             smallBlockSize=int(GUI_in.ui.horizontalSlider.value()),
@@ -247,24 +271,33 @@ class ReadGraph(FigureCanvas):
         print(self.block_size_data)
         print(self.write_data)
         print(self.read_data)
+        #print(GUI_in.ui.readCheckBox.isChecked())
 
-        self.ax1.plot(self.block_size_data, self.read_data, label='Read',color='b')
+        if self.read:
+            self.ax1.plot(self.block_size_data, self.read_data, label='Read',color='b')
+            self.ax1.set_xscale('log', basex=2)
+            self.ax1.set_xlabel('Block Size (KB)')
+            self.ax1.set_ylabel('Read Speed (sec)', color='b')
+            self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
 
-        self.ax1.set_xscale('log', basex=2)
-        self.ax1.set_xlabel('Block Size')
-        self.ax1.set_ylabel('Speed Read')
-
-        self.ax2 = self.ax1.twinx()
-        self.ax2.plot(self.block_size_data, self.write_data, label='Write',color='r')
-        self.ax2.set_ylabel('Speed Write')
-
+            if self.write:
+                self.ax2 = self.ax1.twinx()
+                self.ax2.plot(self.block_size_data, self.write_data, label='Write', color='r')
+                self.ax2.set_ylabel('Write Speed (sec)', color='r')
+        elif self.write:
+            self.ax1.plot(self.block_size_data, self.write_data, label='Write', color='r')
+            self.ax1.set_xscale('log', basex=2)
+            self.ax1.set_xlabel('Block Size (KB)')
+            self.ax1.set_ylabel('Write Speed (sec)', color='r')
+            self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
+        #self.ax2.yaxis.set_major_formatter(mtick.FormatStrFormatter('%4f'))
 
 
 if __name__ == '__main__':
     # This is the first operation  to be run on startup.
     app = QtWidgets.QApplication(sys.argv)
     GUI_in = InputUi()
-    GUI_out = OutputUi()
+
     ui = Benchmarking_input.Ui_MainWindow()
     GUI_in.show()
     # GUI_out.show()

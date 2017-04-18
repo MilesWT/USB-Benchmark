@@ -52,15 +52,15 @@ def benchmarkDevice(letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,
         readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
         blockSizes.append(2**i)
     os.remove('%s:\output_file'%letterDrive)
-    if(read and write):
-        return(blockSizes,writeTimes,readTimes)
-    elif(read):
-        return(blockSizes,readTimes)
-    elif(write):
-        return(blockSizes,writeTimes)
-    else:
-        return(blockSizes)
-
+    # if(read and write):
+    #     return(blockSizes,writeTimes,readTimes)
+    # elif(read):
+    #     return(blockSizes,readTimes)
+    # elif(write):
+    #     return(blockSizes,writeTimes)
+    # else:
+    #     return(blockSizes)
+    return (blockSizes, writeTimes, readTimes)
 
 if __name__ == "__main__":
     print(benchmarkDevice("D",0,16,100))
