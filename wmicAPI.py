@@ -52,7 +52,10 @@ def benchmarkDevice(mainWindow,app,letterDrive,smallBlockSize,bigBlockSize,fileS
     blockSizes =[]
     for i in range(smallBlockSize,bigBlockSize+1):
         if write:
-            tempString = "Writing at "+ str(2**i)+" kB blockSize"
+            if read:
+                tempString = "Writing at "+ str(2**i)+" kB blockSize " +"(Test "+ str((i-smallBlockSize+1)*2-1) + " of " + str((bigBlockSize-smallBlockSize+1)*2) + ")"
+            else:
+                tempString = "Writing at "+ str(2**i)+" kB blockSize " +"(Test "+ str(i-smallBlockSize+1) + " of " + str((bigBlockSize-smallBlockSize+1)) + ")"
             mainWindow.addText(tempString)
             app.processEvents()
             writeTimes.append(writeFile(letterDrive,fileSize,2**i))
@@ -61,7 +64,10 @@ def benchmarkDevice(mainWindow,app,letterDrive,smallBlockSize,bigBlockSize,fileS
             writeFile(letterDrive, fileSize, 2 ** 8)
             writeflag = False
         if read:
-            tempString = "Reading at "+ str(2**i)+" kB blockSize"
+            if write:
+                tempString = "Reading at "+ str(2**i)+" kB blockSize " + "(Test "+ str((i-smallBlockSize+1)*2) + " of " + str((bigBlockSize-smallBlockSize+1)*2) + ")"
+            else:
+                tempString = "Reading at "+ str(2**i)+" kB blockSize " + "(Test "+ str((i-smallBlockSize+1)) + " of " + str((bigBlockSize-smallBlockSize+1)) + ")"
             mainWindow.addText(tempString)
             app.processEvents()
             readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
