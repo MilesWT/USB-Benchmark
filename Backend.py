@@ -284,6 +284,8 @@ class ReadGraph(FigureCanvas):
         self.ax2.cla()
 
         self.block_size_data, self.write_data, self.read_data = wmicAPI.benchmarkDevice(
+            GUI_in,
+            app,
             letterDrive=str(devices['DeviceID'][dev_num]).strip(':'),
             smallBlockSize=int(GUI_in.ui.horizontalSlider.value()),
             bigBlockSize=int(GUI_in.ui.horizontalSlider_2.value()),
