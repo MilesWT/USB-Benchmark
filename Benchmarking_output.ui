@@ -19,18 +19,23 @@
      <rect>
       <x>240</x>
       <y>50</y>
-      <width>711</width>
+      <width>701</width>
       <height>331</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="Graph">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_2">
@@ -164,7 +169,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Benchmark Plots (Demo)</string>
+     <string>Benchmark Plots</string>
     </property>
    </widget>
   </widget>

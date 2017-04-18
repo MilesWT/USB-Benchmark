@@ -25,6 +25,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
 
+
         # Load test label names from savefile.json
         name1, name2, name3, name4 = save_state.load_all_names()
         self.ui.lineEdit_1.setText(name1)
@@ -44,6 +45,8 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ButtonGroup.addButton(self.ui.radioButton_4, 3)
         self.initDevices()
         self.loadTest()
+        self.sliderText(self.ui.horizontalSlider)
+        self.sliderText(self.ui.horizontalSlider_2)
 
         # All event connections will go here:
         self.ui.runButton.pressed.connect(self.runButtonPressed)
@@ -53,6 +56,18 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
         self.ButtonGroup.buttonClicked[int].connect(self.radioButtonClick)
         self.ui.saveButton.clicked.connect(self.saveTest)
+
+
+    # def closeEvent(self, event):
+    #
+    #     quit_msg = "Are you sure you want to exit the program?"
+    #     reply = QtGui.QMessageBox.question(self, 'Message',
+    #                                        quit_msg, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+    #
+    #     if reply == QtGui.QMessageBox.Yes:
+    #         event.accept()
+    #     else:
+    #         event.ignore()
 
     def initDevices(self):
         # initializes the combo box with all connected devices
@@ -151,10 +166,17 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.runButton.setText("Running")
 
     def runButtonReleased(self):
-        # serialnum = \
-        serialNum = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
-        GUI_out.setParameters(serialNum)
-        GUI_out.show()
+        if self.ui.comboBox.currentIndex() < 2: #if a usb device has not been selected
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Critical)
+            msg.setText("Please select a valid USB Storage Device")
+            msg.setWindowTitle("Selection Error")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msg.exec()
+        else:
+            serial_num = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
+            GUI_out.setParameters(serial_num)
+            GUI_out.show()
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
@@ -167,53 +189,75 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         self.devices = wmicAPI.getDevices()  # get the updated list of devices
 
         print(self.devices)
-        pixmap = QtGui.QPixmap('Resources/demo_graph.png')
-        self.ui_2.Graph.setPixmap(pixmap)  # .scaled(550,225))
+        #pixmap = QtGui.QPixmap('Resources/demo_graph.png')
+        #self.ui_2.Graph.setPixmap(pixmap)  # .scaled(550,225))
 
         #self.setParameters()
 
-    def setParameters(self, serialNum):
+    def setParameters(self, serial_num):
         if len(self.devices):
-            devNum = self.devices['VolumeSerialNumber'].index(str(serialNum))
+            self.dev_num = self.devices['VolumeSerialNumber'].index(str(serial_num))
             # for i in range(0, len(self.devices['DeviceID'])): #update with new list
             # self.ui.comboBox.addItem(str(self.devices['DeviceID'][i]) + "  " + str(self.devices['VolumeName'][i]))
-            if str(self.devices['VolumeName'][0]) == '':
+            if str(self.devices['VolumeName'][self.dev_num]) == '':
                 self.ui_2.deviceName.setText('**No Name**')
             else:
-                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][int(devNum)]))
-            self.ui_2.size.setText(str(int(int(self.devices['Size'][int(devNum)]) / (1024 * 1024))) + " MB")
-            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(devNum)]))
-            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(devNum)]))
-            self.ui_2.format.setText(str(self.devices['FileSystem'][int(devNum)]))
-            self.ui_2.freeSpace.setText(str(self.devices['Description'][int(devNum)]))
+                self.ui_2.deviceName.setText(str(self.devices['VolumeName'][int(self.dev_num)]))
+            self.ui_2.size.setText(str(int(int(self.devices['Size'][int(self.dev_num)]) / (1024 * 1024))) + " MB")
+            self.ui_2.serialNumber.setText(str(self.devices['VolumeSerialNumber'][int(self.dev_num)]))
+            self.ui_2.mountPoint.setText(str(self.devices['DeviceID'][int(self.dev_num)]))
+            self.ui_2.format.setText(str(self.devices['FileSystem'][int(self.dev_num)]))
+            self.ui_2.freeSpace.setText(str(self.devices['Description'][int(self.dev_num)]))
+
+            self.graphing()
+
+    def graphing(self):
+        #print(wmicAPI.writeBlock("G", 1000))
+        qqq = ReadGraph(devices=self.devices,dev_num=self.dev_num)
+        self.ui_2.gridLayout.addWidget(qqq)
 
 
 # Plotting functions are created as separate classes
-class CanvasTemplate(FigureCanvas):
+class ReadGraph(FigureCanvas):
     # prototype or creating a plot
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
-        self.compute_initial_figure()
+    def __init__(self, devices=[], dev_num=0, parent=None, width=5, height=4, dpi=100):
+        #fig = Figure(figsize=(width, height), dpi=dpi)
+        fig = Figure()
+        self.file_size = 10 #10MB file
+        self.block_size_data = []
+        self.read_data = []
+        self.write_data = []
+        self.ax1= fig.add_subplot(111)
+        self.compute_initial_figure(devices, dev_num)
         FigureCanvas.__init__(self, fig)
         self.setParent(parent)
-        FigureCanvas.setSizePolicy(self,
-                                   QtWidgets.QSizePolicy.Expanding,
-                                   QtWidgets.QSizePolicy.Expanding)
+        # FigureCanvas.setSizePolicy(self,
+        #                            QtWidgets.QSizePolicy.Expanding,
+        #                            QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
+    def compute_initial_figure(self, devices, dev_num):
+        self.block_size_data, self.write_data, self.read_data = wmicAPI.benchmarkDevice(
+            letterDrive=str(devices['DeviceID'][dev_num]).strip(':'),
+            smallBlockSize=int(GUI_in.ui.horizontalSlider.value()),
+            bigBlockSize=int(GUI_in.ui.horizontalSlider_2.value()),
+            fileSize=int(self.file_size),
+            write=bool(GUI_in.ui.writeCheckBox.isChecked()),
+            read=bool(GUI_in.ui.readCheckBox.isChecked()))
+        print(self.block_size_data)
+        print(self.write_data)
+        print(self.read_data)
 
-class reliFleet_graph(CanvasTemplate):
-    def compute_initial_figure(self):
-        self.axes.plot(func.xaxis,
-                       func.etaData)
-        self.axes.set_xlabel('Investment in reliability')
-        self.axes.set_ylabel('Fleet Size')
+        self.ax1.plot(self.block_size_data, self.read_data, label='Read',color='b')
 
+        self.ax1.set_xscale('log', basex=2)
+        self.ax1.set_xlabel('Block Size')
+        self.ax1.set_ylabel('Speed Read')
 
-class helperClass():
-    def __init__(self):
-        serialNum = ''
+        self.ax2 = self.ax1.twinx()
+        self.ax2.plot(self.block_size_data, self.write_data, label='Write',color='r')
+        self.ax2.set_ylabel('Speed Write')
+
 
 
 if __name__ == '__main__':
@@ -221,7 +265,6 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     GUI_in = InputUi()
     GUI_out = OutputUi()
-    helperClass()
     ui = Benchmarking_input.Ui_MainWindow()
     GUI_in.show()
     # GUI_out.show()
