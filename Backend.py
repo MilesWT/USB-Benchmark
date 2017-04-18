@@ -16,6 +16,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.ticker as mtick
 
+GUI_in = []
 
 class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
     def __init__(self):
@@ -284,6 +285,7 @@ class ReadGraph(FigureCanvas):
         self.ax2.cla()
 
         self.block_size_data, self.write_data, self.read_data = wmicAPI.benchmarkDevice(
+            ui=GUI_in,
             letterDrive=str(devices['DeviceID'][dev_num]).strip(':'),
             smallBlockSize=int(GUI_in.ui.horizontalSlider.value()),
             bigBlockSize=int(GUI_in.ui.horizontalSlider_2.value()),

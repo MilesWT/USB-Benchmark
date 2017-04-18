@@ -1,6 +1,8 @@
 import os
 import time
 import subprocess
+
+
 def getDevices():
     RawDevices = subprocess.check_output("wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem, freespace /format:list", shell=True)
     Devices = RawDevices.decode().split("\n")
@@ -42,7 +44,7 @@ def readFile(fileLocation,blockSize): #inputs: str full fileLocation to access. 
     timeTaken = end-start
     return(timeTaken) #return time taken
 
-def benchmarkDevice(letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,read=True):
+def benchmarkDevice(ui,letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,read=True):
     #Write section
     writeflag = True
     writeTimes = []
@@ -50,6 +52,7 @@ def benchmarkDevice(letterDrive,smallBlockSize,bigBlockSize,fileSize,write=True,
     blockSizes =[]
     for i in range(smallBlockSize,bigBlockSize+1):
         if write:
+            ui.addText("youufjks")#.log.appendText('Wrriting')#addText("writing "+str(i))
             writeTimes.append(writeFile(letterDrive,fileSize,2**i))
             writeflag = False
         elif writeflag:
