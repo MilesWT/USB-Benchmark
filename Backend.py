@@ -245,6 +245,20 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         qqq = ReadGraph(devices=self.devices,dev_num=self.dev_num)
         self.ui_2.gridLayout.addWidget(qqq)
         #self.ui_2.qqq.tight_layout(ReadGraph.fig)
+        save_state.save_test(
+            devName=str(self.devices['VolumeName'][int(self.dev_num)]),
+            size=str(int(int(self.devices['Size'][int(self.dev_num)]))),
+            serialNum=str(self.devices['VolumeSerialNumber'][int(self.dev_num)]),
+            mount=str(self.devices['DeviceID'][int(self.dev_num)]),
+            desc=str(self.devices['Description'][int(self.dev_num)]),
+            freeSpace=str(int(int(self.devices['FreeSpace'][int(self.dev_num)]))),
+            timeStamp=str(datetime.now()),
+            form=str(self.devices['FileSystem'][int(self.dev_num)]),
+            blockSize=qqq.block_size_data,
+            readTimes=qqq.read_data,
+            writeTimes=qqq.write_data,
+            testName=GUI_in.test_name
+        )
 
 
 # Plotting functions are created as separate classes
@@ -295,6 +309,8 @@ class ReadGraph(FigureCanvas):
         print(self.block_size_data)
         print(self.write_data)
         print(self.read_data)
+
+
         #print(GUI_in.ui.readCheckBox.isChecked())
 
         if self.read:
@@ -319,6 +335,8 @@ class ReadGraph(FigureCanvas):
             self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
         #self.ax2.yaxis.set_major_formatter(mtick.FormatStrFormatter('%4f'))
         self.fig.tight_layout(rect=[0.05, 0.05, 0.95, 0.95])
+
+
 
 
 

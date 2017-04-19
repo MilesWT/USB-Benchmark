@@ -1,7 +1,6 @@
 import os
 import time
 import subprocess
-import Backend
 
 def getDevices():
     RawDevices = subprocess.check_output("wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem, freespace /format:list", shell=True)

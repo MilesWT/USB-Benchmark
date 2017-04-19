@@ -3,6 +3,7 @@ Written by Miles Wilhelms-Tricarico
 Creates savefile.json and initializes it, saves to it, and loads from it."""
 import json
 import os
+import datetime
 # from pprint import pprint #for pretty printing json
 
 def is_non_zero_file(fpath):
@@ -33,7 +34,7 @@ def save_state(radio_index, name, slider_min, slider_max, read_checkbox, write_c
     """Saves the state of the specified radio button
     Returns: [nothing]
     """
-    init_savefile_if_missing()
+    #init_savefile_if_missing()
 
     savefile = open('savefile.json', 'r') # open savefile for reading
     data = json.load(savefile)
@@ -48,6 +49,37 @@ def save_state(radio_index, name, slider_min, slider_max, read_checkbox, write_c
     json.dump(data, savefile, ensure_ascii=False, indent=4)
     savefile.close()
 
+def save_test(devName, size, testName, serialNum, mount, desc, freeSpace, form, timeStamp, blockSize, readTimes, writeTimes):
+    #init_savefile_if_missing()
+
+    if not is_non_zero_file('saved_tests.json'):
+        savefile = open('saved_tests.json', 'w')
+        data={}
+        data['Results'] = []
+        json.dump(data, savefile, ensure_ascii=False, indent=4)
+        savefile.close()
+
+    savefile = open('saved_tests.json', 'r')  # open savefile for reading
+    data = json.load(savefile)
+    savefile.close()
+
+    savefile = open('saved_tests.json', 'w')  # open savefile for writing
+    data["Results"].append({
+        "timeStamp": timeStamp,
+        "testName": testName,
+        "deviceName": devName,
+        "size": size,
+        "serialNum": serialNum,
+        "mount": mount,
+        "description": desc,
+        "freeSpace": freeSpace,
+        "format": form,
+        "blockSize": blockSize,
+        "readTimes": readTimes,
+        "writeTimes": writeTimes
+    })
+    json.dump(data, savefile, ensure_ascii=False, indent=4)
+    savefile.close()
 
 def load_radio_button(radio_index):
     """Loads the save data for a particular radio button
