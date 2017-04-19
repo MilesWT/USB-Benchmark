@@ -24,6 +24,8 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui = Benchmarking_input.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
+        self.ui.setIcon(QtGui.QIcon('Resources/reload.png'))
+        app.setWindowIcon(QtGui.QIcon('chip_icon_normal.png'))
 
         # Load test label names from savefile.json
         name1, name2, name3, name4 = save_state.load_all_names()
