@@ -3,9 +3,9 @@
         {
             "readCheckBox": "True",
             "writeCheckBox": "False",
-            "sliderMax": 13,
+            "sliderMax": 5,
             "name": "Bobby",
-            "sliderMin": 12
+            "sliderMin": 3
         },
         {
             "readCheckBox": "False",
