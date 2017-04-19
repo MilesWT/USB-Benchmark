@@ -1,87 +1,265 @@
 {
     "Results": [
         {
-            "serialNum": "1F6DC017",
-            "deviceName": "MILES' 64GB",
-            "timeStamp": "2017-04-18 22:41:12.358922",
-            "description": "Removable Disk",
-            "mount": "G:",
-            "freeSpace": "44989317120",
             "size": "61933125632",
-            "format": "FAT32",
+            "blockSize": [
+                4096,
+                8192
+            ],
+            "mount": "G:",
             "writeTimes": [
                 5.068636607787392,
                 4.947945640162439
             ],
+            "freeSpace": "44989317120",
+            "format": "FAT32",
             "readTimes": [
                 0.3815700341780337,
                 0.3580183240789214
             ],
-            "blockSize": [
-                4096,
-                8192
-            ]
+            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 22:41:12.358922"
         },
         {
-            "serialNum": "1F6DC017",
-            "writeTimes": [],
-            "timeStamp": "2017-04-18 22:43:07.040710",
-            "description": "Removable Disk",
-            "mount": "G:",
+            "size": "61933125632",
             "blockSize": [
                 4096,
                 8192
             ],
-            "deviceName": "MILES' 64GB",
+            "mount": "G:",
+            "writeTimes": [],
+            "freeSpace": "44989317120",
             "format": "FAT32",
             "readTimes": [
                 0.3603199529239496,
                 0.36074204650812725
             ],
-            "size": "61933125632",
-            "freeSpace": "44989317120"
+            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 22:43:07.040710"
         },
         {
-            "timeStamp": "2017-04-18 22:52:38.331818",
-            "testName": "Bobby",
-            "mount": "G:",
             "blockSize": [
                 4096,
                 8192
             ],
-            "writeTimes": [],
+            "testName": "Bobby",
             "readTimes": [
                 0.38318442453291723,
                 0.34050079885594275
             ],
-            "serialNum": "1F6DC017",
-            "deviceName": "MILES' 64GB",
-            "description": "Removable Disk",
             "freeSpace": "44989317120",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 22:52:38.331818",
             "size": "61933125632",
-            "format": "FAT32"
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
         },
         {
-            "timeStamp": "2017-04-18 23:00:51.247273",
-            "testName": "Bobby",
-            "deviceName": "Miles 512MB",
-            "size": "515629056",
-            "serialNum": "6245ABA8",
-            "mount": "E:",
-            "description": "Removable Disk",
-            "freeSpace": "515604480",
-            "format": "FAT",
             "blockSize": [
                 8,
                 16,
                 32
             ],
+            "testName": "Bobby",
             "readTimes": [
                 0.40010972773978537,
                 0.3219159594962733,
                 0.2931655293505475
             ],
-            "writeTimes": []
+            "freeSpace": "515604480",
+            "format": "FAT",
+            "description": "Removable Disk",
+            "deviceName": "Miles 512MB",
+            "timeStamp": "2017-04-18 23:00:51.247273",
+            "size": "515629056",
+            "mount": "E:",
+            "writeTimes": [],
+            "serialNum": "6245ABA8"
+        },
+        {
+            "blockSize": [
+                8,
+                16,
+                32
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.4001139267789515,
+                0.3380601827618177,
+                0.3116068465546551
+            ],
+            "freeSpace": "44989317120",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 23:29:28.706218",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
+        },
+        {
+            "blockSize": [
+                8,
+                16,
+                32
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.41880578734352225,
+                0.33621314913460143,
+                0.3118057052341312
+            ],
+            "freeSpace": "44989317120",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 23:30:18.076993",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
+        },
+        {
+            "blockSize": [
+                8,
+                16,
+                32
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.4074973571040017,
+                0.3517035987861492,
+                0.314314745820119
+            ],
+            "freeSpace": "44989317120",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 23:30:48.617392",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
+        },
+        {
+            "blockSize": [
+                8,
+                16,
+                32
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.39393690577605867,
+                0.33894756289066663,
+                0.31317419507143995
+            ],
+            "freeSpace": "44989317120",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-18 23:37:46.482690",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
+        },
+        {
+            "blockSize": [
+                8,
+                16,
+                32
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.3747284402979201,
+                0.31675921079191127,
+                0.29942643169696126
+            ],
+            "freeSpace": "44989120512",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-19 00:16:41.062544",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [],
+            "serialNum": "1F6DC017"
+        },
+        {
+            "blockSize": [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32,
+                64,
+                128,
+                256,
+                512,
+                1024,
+                2048,
+                4096,
+                8192,
+                16384,
+                32768,
+                65536
+            ],
+            "testName": "Bobby",
+            "readTimes": [
+                0.40276280992019053,
+                0.41194623203429614,
+                0.4061913046155894,
+                0.39368715638076424,
+                0.36618991901960385,
+                0.3262526813847728,
+                0.3596040616778282,
+                0.3241931041796988,
+                0.31366941733125486,
+                0.31457304827688404,
+                0.35803414724264826,
+                0.3696744362677009,
+                0.3652708925632737,
+                0.36938619809575357,
+                0.35129390714115516,
+                0.3661137967724244,
+                0.2270846376752047
+            ],
+            "freeSpace": "44989120512",
+            "format": "FAT32",
+            "description": "Removable Disk",
+            "deviceName": "MILES' 64GB",
+            "timeStamp": "2017-04-19 00:21:26.234783",
+            "size": "61933125632",
+            "mount": "G:",
+            "writeTimes": [
+                42.864165409366635,
+                42.760488619296396,
+                43.05044381836035,
+                43.139387960026426,
+                22.995379636186954,
+                7.464373933005589,
+                6.461808442213794,
+                4.202042128959647,
+                3.8287865258490683,
+                5.386084767681751,
+                3.5961000605556706,
+                5.424372975062681,
+                3.6068512588395834,
+                5.305029969927432,
+                3.5389284040329585,
+                12.60581591074714,
+                4.0014001361647615
+            ],
+            "serialNum": "1F6DC017"
         }
     ]
 }

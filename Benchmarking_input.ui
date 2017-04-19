@@ -382,7 +382,7 @@ border-color: rgb(170, 0, 0);</string>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>10</y>
       <width>20</width>
       <height>301</height>

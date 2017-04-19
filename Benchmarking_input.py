@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
         self.saveButton.setGeometry(QtCore.QRect(10, 250, 141, 41))
         self.saveButton.setObjectName("saveButton")
         self.line = QtWidgets.QFrame(self.centralwidget)
-        self.line.setGeometry(QtCore.QRect(150, 10, 20, 301))
+        self.line.setGeometry(QtCore.QRect(160, 10, 20, 301))
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")

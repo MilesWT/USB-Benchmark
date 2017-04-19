@@ -24,8 +24,8 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui = Benchmarking_input.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.refresh.setIcon(QtGui.QIcon('Resources/reload.png'))
-        self.ui.setIcon(QtGui.QIcon('Resources/reload.png'))
-        app.setWindowIcon(QtGui.QIcon('chip_icon_normal.png'))
+        #self.ui.setIcon(QtGui.QIcon('Resources/reload.png'))
+        self.setWindowIcon(QtGui.QIcon('Resources/usb.png'))
 
         # Load test label names from savefile.json
         name1, name2, name3, name4 = save_state.load_all_names()
@@ -199,6 +199,7 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         self.ui_2 = Benchmarking_output.Ui_MainWindow()
         self.ui_2.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('Resources/graph.png'))
 
         self.devices = wmicAPI.getDevices()  # get the updated list of devices
         self.dev_num = 0
@@ -243,10 +244,9 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
             print('No Devices attached')
             sys.exit(app.exec_())
     def graphing(self):
-        #print(wmicAPI.writeBlock("G", 1000))
         qqq = ReadGraph(devices=self.devices,dev_num=self.dev_num)
         self.ui_2.gridLayout.addWidget(qqq)
-        #self.ui_2.qqq.tight_layout(ReadGraph.fig)
+
         save_state.save_test(
             devName=str(self.devices['VolumeName'][int(self.dev_num)]),
             size=str(int(int(self.devices['Size'][int(self.dev_num)]))),
@@ -267,10 +267,8 @@ class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
 class ReadGraph(FigureCanvas):
     # prototype or creating a plot
     def __init__(self, devices=[], dev_num=0, parent=None, width=5, height=4, dpi=100):
-        #fig = Figure(figsize=(width, height), dpi=dpi)
 
         self.fig = Figure()
-
 
         self.file_size = 100 #100MB file
         self.block_size_data = []
@@ -280,7 +278,6 @@ class ReadGraph(FigureCanvas):
         self.read = GUI_in.ui.readCheckBox.isChecked()
         self.write = GUI_in.ui.writeCheckBox.isChecked()
 
-        #self.ax1.close()
         self.ax1 = self.fig.add_subplot(111)
         self.ax2 = self.fig.add_subplot(111)
 
