@@ -4,15 +4,15 @@
             "readCheckBox": "True",
             "sliderMin": 0,
             "sliderMax": 16,
-            "name": "Bobby",
+            "name": "All Block Sizes R/W",
             "writeCheckBox": "True"
         },
         {
-            "readCheckBox": "False",
-            "sliderMin": 11,
+            "readCheckBox": "True",
+            "sliderMin": 13,
             "sliderMax": 16,
-            "name": "Miles",
-            "writeCheckBox": "True"
+            "name": "Test 2",
+            "writeCheckBox": "False"
         },
         {
             "readCheckBox": "True",
