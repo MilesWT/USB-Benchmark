@@ -56,7 +56,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.horizontalSlider.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider))
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
         self.ButtonGroup.buttonClicked[int].connect(self.radioButtonClick)
-        self.ui.saveButton.clicked.connect(self.saveTest)
+        self.ui.saveButton.clicked.connect(lambda:self.saveTest(index=self.radioIndex()))
 
 
     # def closeEvent(self, event):
