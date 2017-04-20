@@ -57,7 +57,7 @@ def benchmarkDevice(mainWindow,app,letterDrive,smallBlockSize,bigBlockSize,fileS
                 tempString = "Writing at "+ str(2**i)+" kB blockSize " +"(Test "+ str(i-smallBlockSize+1) + " of " + str((bigBlockSize-smallBlockSize+1)) + ")"
             mainWindow.addText(tempString)
             app.processEvents()
-            writeTimes.append(writeFile(letterDrive,fileSize,2**i))
+            writeTimes.append(fileSize/(writeFile(letterDrive,fileSize,2**i)))
             writeflag = False
         elif writeflag:
             writeFile(letterDrive, fileSize, 2 ** 8)
@@ -69,7 +69,7 @@ def benchmarkDevice(mainWindow,app,letterDrive,smallBlockSize,bigBlockSize,fileS
                 tempString = "Reading at "+ str(2**i)+" kB blockSize " + "(Test "+ str((i-smallBlockSize+1)) + " of " + str((bigBlockSize-smallBlockSize+1)) + ")"
             mainWindow.addText(tempString)
             app.processEvents()
-            readTimes.append(readFile('%s:\output_file'%letterDrive,2**i))
+            readTimes.append(fileSize/(readFile('%s:\output_file'%letterDrive,2**i)))
         blockSizes.append(2**i)
     os.remove('%s:\output_file'%letterDrive)
     # if(read and write):

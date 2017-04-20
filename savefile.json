@@ -1,31 +1,31 @@
 {
     "savedTests": [
         {
-            "readCheckBox": "True",
-            "sliderMin": 0,
-            "sliderMax": 16,
             "name": "All Block Sizes R/W",
+            "sliderMin": 11,
+            "sliderMax": 12,
+            "readCheckBox": "True",
             "writeCheckBox": "True"
         },
         {
-            "readCheckBox": "True",
+            "name": "Test 2",
             "sliderMin": 13,
             "sliderMax": 16,
-            "name": "Test 2",
+            "readCheckBox": "True",
             "writeCheckBox": "False"
         },
         {
-            "readCheckBox": "True",
+            "name": "Test 3",
             "sliderMin": 4,
             "sliderMax": 10,
-            "name": "Test 3",
+            "readCheckBox": "True",
             "writeCheckBox": "True"
         },
         {
-            "readCheckBox": "True",
+            "name": "Test 4",
             "sliderMin": 3,
             "sliderMax": 16,
-            "name": "Test 4",
+            "readCheckBox": "True",
             "writeCheckBox": "True"
         }
     ]

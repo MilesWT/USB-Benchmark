@@ -312,17 +312,22 @@ class ReadGraph(FigureCanvas):
 
         #print(GUI_in.ui.readCheckBox.isChecked())
 
+        # for i in len(self.block_size_data):
+        #      self.read_data[i]=self.read_data[i]/self.file_size
+        #      self.write_data[i] = self.write_data[i] / self.file_size
+
         if self.read:
             self.ax1.plot(self.block_size_data, self.read_data, label='Read',color='b')
             self.ax1.set_xscale('log', basex=2)
             self.ax1.set_xlabel('Block Size (KB)')
-            self.ax1.set_ylabel('Read Speed (sec)', color='b')
+            self.ax1.set_ylabel('Read Speed (MB/sec)', color='b')
             self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
+           # self.ax1.tick_params(axis='y', colors='b')
 
             if self.write:
                 self.ax2 = self.ax1.twinx()
                 self.ax2.plot(self.block_size_data, self.write_data, label='Write', color='r')
-                self.ax2.set_ylabel('Write Speed (sec)', color='r')
+                self.ax2.set_ylabel('Write Speed (MB/sec)', color='r')
                 #self.ax1.tight_layout()
                 #self.ax2.tight_layout()
 
@@ -330,7 +335,7 @@ class ReadGraph(FigureCanvas):
             self.ax1.plot(self.block_size_data, self.write_data, label='Write', color='r')
             self.ax1.set_xscale('log', basex=2)
             self.ax1.set_xlabel('Block Size (KB)')
-            self.ax1.set_ylabel('Write Speed (sec)', color='r')
+            self.ax1.set_ylabel('Write Speed (MB/sec)', color='r')
             self.ax1.xaxis.set_major_formatter(mtick.FormatStrFormatter('%d'))
         #self.ax2.yaxis.set_major_formatter(mtick.FormatStrFormatter('%4f'))
         self.fig.tight_layout(rect=[0.05, 0.05, 0.95, 0.95])
