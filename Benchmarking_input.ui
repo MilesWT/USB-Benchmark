@@ -28,7 +28,7 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>151</width>
+      <width>161</width>
       <height>171</height>
      </rect>
     </property>
@@ -365,6 +365,15 @@ border-color: rgb(170, 0, 0);</string>
     <property name="text">
      <string>Run Test</string>
     </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="saveButton">
     <property name="geometry">
@@ -400,6 +409,12 @@ border-color: rgb(170, 0, 0);</string>
       <width>231</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="duplicatesEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
     </property>
     <item>
      <property name="text">
@@ -485,6 +500,9 @@ border-color: rgb(170, 0, 0);</string>
     </property>
     <property name="text">
      <string>Refresh</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -580,6 +598,25 @@ border-color: rgb(170, 0, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>runButton</tabstop>
+  <tabstop>refresh</tabstop>
+  <tabstop>radioButton_1</tabstop>
+  <tabstop>radioButton_2</tabstop>
+  <tabstop>radioButton_3</tabstop>
+  <tabstop>radioButton_4</tabstop>
+  <tabstop>lineEdit_1</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>saveButton</tabstop>
+  <tabstop>horizontalSlider</tabstop>
+  <tabstop>horizontalSlider_2</tabstop>
+  <tabstop>writeCheckBox</tabstop>
+  <tabstop>readCheckBox</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>log</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

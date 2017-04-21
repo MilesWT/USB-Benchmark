@@ -1,32 +1,32 @@
 {
     "savedTests": [
         {
+            "sliderMax": 16,
+            "writeCheckBox": "True",
+            "name": "Short Test",
+            "sliderMin": 15,
+            "readCheckBox": "True"
+        },
+        {
+            "sliderMax": 16,
+            "writeCheckBox": "False",
+            "name": "All Block R",
+            "sliderMin": 0,
+            "readCheckBox": "True"
+        },
+        {
+            "sliderMax": 16,
+            "writeCheckBox": "True",
+            "name": "All Block W",
+            "sliderMin": 0,
+            "readCheckBox": "False"
+        },
+        {
+            "sliderMax": 16,
+            "writeCheckBox": "True",
             "name": "All Block Sizes R/W",
-            "sliderMin": 11,
-            "sliderMax": 12,
-            "readCheckBox": "True",
-            "writeCheckBox": "True"
-        },
-        {
-            "name": "Test 2",
-            "sliderMin": 13,
-            "sliderMax": 16,
-            "readCheckBox": "True",
-            "writeCheckBox": "False"
-        },
-        {
-            "name": "Test 3",
-            "sliderMin": 4,
-            "sliderMax": 10,
-            "readCheckBox": "True",
-            "writeCheckBox": "True"
-        },
-        {
-            "name": "Test 4",
-            "sliderMin": 3,
-            "sliderMax": 16,
-            "readCheckBox": "True",
-            "writeCheckBox": "True"
+            "sliderMin": 0,
+            "readCheckBox": "True"
         }
     ]
 }

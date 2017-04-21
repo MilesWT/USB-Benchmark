@@ -59,7 +59,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         self.ui.horizontalSlider_2.valueChanged.connect(lambda: self.sliderText(self.ui.horizontalSlider_2))
         self.ButtonGroup.buttonClicked[int].connect(self.radioButtonClick)
         self.ui.saveButton.clicked.connect(lambda:self.saveTest(index=self.radioIndex()))
-
+        #self.ui.runButton.setFocus(True)
 
     # def closeEvent(self, event):
     #
@@ -133,7 +133,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
         read_checkbox = self.ui.readCheckBox.isChecked()
         write_checkbox = self.ui.writeCheckBox.isChecked()
         save_state.save_state(index, self.test_name, slider_min, slider_max, read_checkbox, write_checkbox)
-        self.addText("\r\nSaved Test: " + self.test_name)
+        self.addText("Saved Test: " + self.test_name)
 
 
     def loadTest(self):
@@ -165,11 +165,23 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             self.ui.lineEdit_4.setEnabled(True)
         else:
             pass
+    def enabling(self, TF=True):
+        self.ui.horizontalSlider.setEnabled(TF)
+        self.ui.horizontalSlider_2.setEnabled(TF)
+        self.ui.radioButton_1.setEnabled(TF)
+        self.ui.radioButton_2.setEnabled(TF)
+        self.ui.radioButton_3.setEnabled(TF)
+        self.ui.radioButton_4.setEnabled(TF)
+        self.ui.runButton.setEnabled(TF)
+        self.ui.saveButton.setEnabled(not TF)
+        self.ui.writeCheckBox.setEnabled(not TF)
+        self.ui.readCheckBox.setEnabled(not TF)
 
     def runButtonPressed(self):
         # helper function to display 'running' while running application
         self.ui.runButton.setText("Running")
         self.saveTest()
+        self.enabling(False)
 
 
     def runButtonReleased(self):
@@ -180,17 +192,20 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             msg.setText("Please select a valid USB Storage Device")
             msg.setWindowTitle("Selection Error")
             msg.exec()
-        elif self.ui.writeCheckBox.isChecked() is not True and self.ui.readCheckBox.isChecked() is not True:
+        elif self.ui.writeCheckBox.isChecked() is not True and self.ui.readCheckBox.isChecked() is not True: #neither read nor write
             msg.setText("Please Select Read and/or Write for Tests to be Run")
             msg.setWindowTitle("Selection Error")
             msg.exec()
         else:  #run
             serial_num = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
             self.GUI_out = OutputUi()
+            self.addText("\r\n " + self.test_name + ": Test Run Beginning")
             self.GUI_out.setParameters(serial_num)
             self.GUI_out.show()
-            self.ui.runButton.setText("Run Test")
-            self.addText(self.test_name + " Test Run ")
+            self.addText(self.test_name + ": Test Run Completed\r\n")
+
+        self.ui.runButton.setText("Run Test")
+        self.enabling(True)
 
 
 class OutputUi(QtWidgets.QMainWindow, Benchmarking_output.Ui_MainWindow):
@@ -317,7 +332,7 @@ class ReadGraph(FigureCanvas):
         #      self.write_data[i] = self.write_data[i] / self.file_size
 
         if self.read:
-            self.ax1.plot(self.block_size_data, self.read_data, label='Read',color='b')
+            self.ax1.plot(self.block_size_data, self.read_data, 'bo-', label='Read')#color='b')
             self.ax1.set_xscale('log', basex=2)
             self.ax1.set_xlabel('Block Size (KB)')
             self.ax1.set_ylabel('Read Speed (MB/sec)', color='b')
@@ -326,13 +341,13 @@ class ReadGraph(FigureCanvas):
 
             if self.write:
                 self.ax2 = self.ax1.twinx()
-                self.ax2.plot(self.block_size_data, self.write_data, label='Write', color='r')
+                self.ax2.plot(self.block_size_data, self.write_data, 'ro-', label='Write')#, color='r')
                 self.ax2.set_ylabel('Write Speed (MB/sec)', color='r')
                 #self.ax1.tight_layout()
                 #self.ax2.tight_layout()
 
         elif self.write:
-            self.ax1.plot(self.block_size_data, self.write_data, label='Write', color='r')
+            self.ax1.plot(self.block_size_data, self.write_data, 'ro-', label='Write')#, color='r')
             self.ax1.set_xscale('log', basex=2)
             self.ax1.set_xlabel('Block Size (KB)')
             self.ax1.set_ylabel('Write Speed (MB/sec)', color='r')
