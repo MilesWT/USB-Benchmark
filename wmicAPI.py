@@ -94,7 +94,7 @@ def benchmarkDevice(mainWindow, app, letterDrive, smallBlockSize, bigBlockSize, 
             app.processEvents()
             readTimes.append(fileSize / (readFile('%s:\output_file' % letterDrive, 2 ** i)))
         blockSizes.append(2 ** i)
-        os.remove('%s:\output_file' % letterDrive)
+    os.remove('%s:\output_file' % letterDrive)
     # if(read and write):
     #     return(blockSizes,writeTimes,readTimes)
     # elif(read):

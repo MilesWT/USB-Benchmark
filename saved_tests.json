@@ -1,8 +1,6 @@
 {
     "Results": [
         {
-            "serialNum": "6245ABA8",
-            "mount": "E:",
             "writeTimes": [
                 126.1899189610091,
                 125.87040625234783,
@@ -22,32 +20,12 @@
                 13.866214708340294,
                 9.211312160115313
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
+            "serialNum": "6245ABA8",
             "deviceName": "Miles 512MB",
-            "blockSize": [
-                1,
-                2,
-                4,
-                8,
-                16,
-                32,
-                64,
-                128,
-                256,
-                512,
-                1024,
-                2048,
-                4096,
-                8192,
-                16384,
-                32768,
-                65536
-            ],
-            "timeStamp": "2017-04-19 17:39:24.390425",
-            "size": "515629056",
-            "freeSpace": "515604480",
             "format": "FAT",
+            "mount": "E:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "515604480",
             "readTimes": [
                 0.38123479417468786,
                 0.37063303537721026,
@@ -66,207 +44,7 @@
                 0.5131538794738617,
                 0.34036561691004863,
                 0.2239800097021316
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [
-                5.056611003342536,
-                3.579539195259552
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:14:03.053206",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                0.39396170965435395,
-                0.3873484825158311
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:25:35.183814",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                0.3524173517668916,
-                0.3487352587985342
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:27:14.573293",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                0.3817552079591371,
-                0.343199289753775
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:27:33.741225",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                0.3808122329306549,
-                0.3637540071093044
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:31:55.182867",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                0.003700251117885136,
-                0.0034356920966290704
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:33:01.602171",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                37.6930853629748,
-                34.30521770962702
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [
-                541.133639875057,
-                359.71264279336134
-            ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:33:19.480397",
-            "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                35.96720585166224,
-                36.984378688507746
-            ]
-        },
-        {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
-            "writeTimes": [
-                27.839463503641813,
-                18.51027359035872
-            ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "MILES' 64GB",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:36:14.377330",
-            "size": "61933125632",
-            "freeSpace": "44884262912",
-            "format": "FAT32",
-            "readTimes": [
-                256.58868454549406,
-                268.24854194294346
-            ]
-        },
-        {
-            "serialNum": "807C62D6",
-            "mount": "H:",
-            "writeTimes": [
-                4.675567827459897,
-                5.382683453042822
-            ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "BZ",
-            "blockSize": [
-                2048,
-                4096
-            ],
-            "timeStamp": "2017-04-20 14:40:41.029539",
-            "size": "7753662464",
-            "freeSpace": "4739284992",
-            "format": "FAT32",
-            "readTimes": [
-                273.5049213116465,
-                268.4271427390716
-            ]
-        },
-        {
-            "serialNum": "807C62D6",
-            "mount": "H:",
-            "writeTimes": [],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
-            "deviceName": "BZ",
             "blockSize": [
                 1,
                 2,
@@ -286,10 +64,210 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 14:43:51.825330",
-            "size": "7753662464",
-            "freeSpace": "4739284992",
+            "description": "Removable Disk",
+            "size": "515629056",
+            "timeStamp": "2017-04-19 17:39:24.390425"
+        },
+        {
+            "writeTimes": [
+                5.056611003342536,
+                3.579539195259552
+            ],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
             "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                0.39396170965435395,
+                0.3873484825158311
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:14:03.053206"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                0.3524173517668916,
+                0.3487352587985342
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:25:35.183814"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                0.3817552079591371,
+                0.343199289753775
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:27:14.573293"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                0.3808122329306549,
+                0.3637540071093044
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:27:33.741225"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                0.003700251117885136,
+                0.0034356920966290704
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:31:55.182867"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                37.6930853629748,
+                34.30521770962702
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:33:01.602171"
+        },
+        {
+            "writeTimes": [
+                541.133639875057,
+                359.71264279336134
+            ],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                35.96720585166224,
+                36.984378688507746
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:33:19.480397"
+        },
+        {
+            "writeTimes": [
+                27.839463503641813,
+                18.51027359035872
+            ],
+            "serialNum": "1F6DC017",
+            "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44884262912",
+            "readTimes": [
+                256.58868454549406,
+                268.24854194294346
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "61933125632",
+            "timeStamp": "2017-04-20 14:36:14.377330"
+        },
+        {
+            "writeTimes": [
+                4.675567827459897,
+                5.382683453042822
+            ],
+            "serialNum": "807C62D6",
+            "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "4739284992",
+            "readTimes": [
+                273.5049213116465,
+                268.4271427390716
+            ],
+            "blockSize": [
+                2048,
+                4096
+            ],
+            "description": "Removable Disk",
+            "size": "7753662464",
+            "timeStamp": "2017-04-20 14:40:41.029539"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "807C62D6",
+            "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "4739284992",
             "readTimes": [
                 226.37445617132866,
                 259.5244675148332,
@@ -308,281 +286,301 @@
                 304.33278540667027,
                 307.8814212075355,
                 448.8847679983407
-            ]
+            ],
+            "blockSize": [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32,
+                64,
+                128,
+                256,
+                512,
+                1024,
+                2048,
+                4096,
+                8192,
+                16384,
+                32768,
+                65536
+            ],
+            "description": "Removable Disk",
+            "size": "7753662464",
+            "timeStamp": "2017-04-20 14:43:51.825330"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.783865248353354,
                 18.490756298268163
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                280.37630605202355,
+                276.0058922956355
+            ],
             "blockSize": [
                 1024,
                 2048
             ],
-            "timeStamp": "2017-04-20 14:49:59.003516",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                280.37630605202355,
-                276.0058922956355
-            ]
+            "timeStamp": "2017-04-20 14:49:59.003516"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.78432082676256,
                 18.50375983342419
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                275.57912600763717,
+                272.585415211946
+            ],
             "blockSize": [
                 1024,
                 2048
             ],
-            "timeStamp": "2017-04-20 14:53:11.446873",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                275.57912600763717,
-                272.585415211946
-            ]
+            "timeStamp": "2017-04-20 14:53:11.446873"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.801607524019943,
                 18.605743650411153
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                251.0542081360518,
+                278.4153851282812
+            ],
             "blockSize": [
                 1024,
                 2048
             ],
-            "timeStamp": "2017-04-20 14:54:52.669218",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                251.0542081360518,
-                278.4153851282812
-            ]
+            "timeStamp": "2017-04-20 14:54:52.669218"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 14.083964458700603,
                 18.46627092430859
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44948619264",
+            "readTimes": [
+                143.13292570731096,
+                145.7455176445806
+            ],
             "blockSize": [
                 1024,
                 2048
             ],
-            "timeStamp": "2017-04-20 14:56:49.018366",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44948619264",
-            "format": "FAT32",
-            "readTimes": [
-                143.13292570731096,
-                145.7455176445806
-            ]
+            "timeStamp": "2017-04-20 14:56:49.018366"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.912446594561764
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                136.63515599709714
+            ],
             "blockSize": [
                 2048
             ],
-            "timeStamp": "2017-04-20 15:00:56.721075",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                136.63515599709714
-            ]
+            "timeStamp": "2017-04-20 15:00:56.721075"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 18.521293106165892
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44884262912",
+            "readTimes": [
+                143.79907005575848
+            ],
             "blockSize": [
                 2048
             ],
-            "timeStamp": "2017-04-20 15:11:05.678552",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44884262912",
-            "format": "FAT32",
-            "readTimes": [
-                143.79907005575848
-            ]
+            "timeStamp": "2017-04-20 15:11:05.678552"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.92502338585642,
                 18.48714541803659
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44884262912",
+            "readTimes": [
+                131.24973689365558,
+                142.77522011503345
+            ],
             "blockSize": [
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 15:13:36.244228",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44884262912",
-            "format": "FAT32",
-            "readTimes": [
-                131.24973689365558,
-                142.77522011503345
-            ]
+            "timeStamp": "2017-04-20 15:13:36.244228"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 27.897517832159195,
                 18.44040905819254
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44884262912",
+            "readTimes": [
+                137.61829430209897,
+                142.88890097447128
+            ],
             "blockSize": [
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 15:14:28.090560",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44884262912",
-            "format": "FAT32",
-            "readTimes": [
-                137.61829430209897,
-                142.88890097447128
-            ]
+            "timeStamp": "2017-04-20 15:14:28.090560"
         },
         {
-            "serialNum": "807C62D6",
-            "mount": "H:",
             "writeTimes": [
                 4.398201531872499,
                 5.393928861269228
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "807C62D6",
             "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "Short Test",
+            "freeSpace": "4739284992",
+            "readTimes": [
+                143.1679796630979,
+                144.06760446753373
+            ],
             "blockSize": [
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 15:15:17.147959",
+            "description": "Removable Disk",
             "size": "7753662464",
-            "freeSpace": "4739284992",
-            "format": "FAT32",
-            "readTimes": [
-                143.1679796630979,
-                144.06760446753373
-            ]
+            "timeStamp": "2017-04-20 15:15:17.147959"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 18.4640953813704,
                 13.823410101286218
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44884262912",
+            "readTimes": [
+                88.58937440022487,
+                88.11198297405413
+            ],
             "blockSize": [
                 512,
                 1024
             ],
-            "timeStamp": "2017-04-20 15:42:27.185465",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44884262912",
-            "format": "FAT32",
-            "readTimes": [
-                88.58937440022487,
-                88.11198297405413
-            ]
+            "timeStamp": "2017-04-20 15:42:27.185465"
         },
         {
-            "serialNum": "807C62D6",
-            "mount": "H:",
             "writeTimes": [
                 5.1104000924544755,
                 4.538071252180763
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "807C62D6",
             "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "Short Test",
+            "freeSpace": "4529573888",
+            "readTimes": [
+                93.96313393683728,
+                87.97977289658476
+            ],
             "blockSize": [
                 512,
                 1024
             ],
-            "timeStamp": "2017-04-20 15:43:46.922164",
+            "description": "Removable Disk",
             "size": "7753662464",
-            "freeSpace": "4529573888",
-            "format": "FAT32",
-            "readTimes": [
-                93.96313393683728,
-                87.97977289658476
-            ]
+            "timeStamp": "2017-04-20 15:43:46.922164"
         },
         {
-            "serialNum": "807C62D6",
-            "mount": "H:",
             "writeTimes": [
                 4.908592282611386,
                 4.532342499942899
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "807C62D6",
             "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "Short Test",
+            "freeSpace": "4529573888",
+            "readTimes": [
+                91.52163847382758,
+                78.69979335088274
+            ],
             "blockSize": [
                 512,
                 1024
             ],
-            "timeStamp": "2017-04-20 15:53:59.663364",
+            "description": "Removable Disk",
             "size": "7753662464",
-            "freeSpace": "4529573888",
-            "format": "FAT32",
-            "readTimes": [
-                91.52163847382758,
-                78.69979335088274
-            ]
+            "timeStamp": "2017-04-20 15:53:59.663364"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 2.249514799668329,
                 2.330925758844704,
@@ -602,9 +600,31 @@
                 7.930333485563373,
                 24.92222542556318
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "44989120512",
+            "readTimes": [
+                70.48631416234906,
+                75.35419802606256,
+                79.4183276512398,
+                82.36888788066271,
+                85.3575015030273,
+                92.35651003784942,
+                94.56458967917412,
+                94.25097219803777,
+                97.11565736755514,
+                94.62685153822903,
+                89.22627247022665,
+                79.45162658200417,
+                86.72273021441968,
+                93.63886025675026,
+                86.41055753586498,
+                56.44352386536441,
+                80.41341131392485
+            ],
             "blockSize": [
                 1,
                 2,
@@ -624,33 +644,11 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 17:27:26.412830",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44989120512",
-            "format": "FAT32",
-            "readTimes": [
-                70.48631416234906,
-                75.35419802606256,
-                79.4183276512398,
-                82.36888788066271,
-                85.3575015030273,
-                92.35651003784942,
-                94.56458967917412,
-                94.25097219803777,
-                97.11565736755514,
-                94.62685153822903,
-                89.22627247022665,
-                79.45162658200417,
-                86.72273021441968,
-                93.63886025675026,
-                86.41055753586498,
-                56.44352386536441,
-                80.41341131392485
-            ]
+            "timeStamp": "2017-04-20 17:27:26.412830"
         },
         {
-            "serialNum": "807C62D6",
-            "mount": "H:",
             "writeTimes": [
                 3.342257668509625,
                 4.136039039313653,
@@ -670,9 +668,31 @@
                 4.488304006575237,
                 8.059089734619556
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
+            "serialNum": "807C62D6",
             "deviceName": "BZ",
+            "format": "FAT32",
+            "mount": "H:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "4529573888",
+            "readTimes": [
+                68.26303148949904,
+                76.57412319481246,
+                78.88564276606219,
+                80.77513376197128,
+                85.89450855586342,
+                81.96812336736419,
+                95.43380896293354,
+                95.07867436400154,
+                95.59208705531353,
+                93.351016050978,
+                89.25345014222201,
+                88.37703094592935,
+                90.17339435531456,
+                91.39054211866296,
+                93.8480383106959,
+                57.57431607933799,
+                77.78365818812497
+            ],
             "blockSize": [
                 1,
                 2,
@@ -692,59 +712,37 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 17:37:19.268940",
+            "description": "Removable Disk",
             "size": "7753662464",
-            "freeSpace": "4529573888",
-            "format": "FAT32",
-            "readTimes": [
-                68.26303148949904,
-                76.57412319481246,
-                78.88564276606219,
-                80.77513376197128,
-                85.89450855586342,
-                81.96812336736419,
-                95.43380896293354,
-                95.07867436400154,
-                95.59208705531353,
-                93.351016050978,
-                89.25345014222201,
-                88.37703094592935,
-                90.17339435531456,
-                91.39054211866296,
-                93.8480383106959,
-                57.57431607933799,
-                77.78365818812497
-            ]
+            "timeStamp": "2017-04-20 17:37:19.268940"
         },
         {
-            "serialNum": "162E1B0A",
-            "mount": "G:",
             "writeTimes": [
                 35.3487095235187,
                 35.810132531598406,
                 36.36376077222902
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "162E1B0A",
             "deviceName": "MILES 500GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "330347249664",
+            "readTimes": [
+                96.21235031778733,
+                94.17376490630328,
+                89.37745794851195
+            ],
             "blockSize": [
                 256,
                 512,
                 1024
             ],
-            "timeStamp": "2017-04-20 17:40:50.434548",
+            "description": "Local Fixed Disk",
             "size": "499982073856",
-            "freeSpace": "330347249664",
-            "format": "FAT32",
-            "readTimes": [
-                96.21235031778733,
-                94.17376490630328,
-                89.37745794851195
-            ]
+            "timeStamp": "2017-04-20 17:40:50.434548"
         },
         {
-            "serialNum": "162E1B0A",
-            "mount": "G:",
             "writeTimes": [
                 15.771586560861943,
                 15.963444311647722,
@@ -764,9 +762,31 @@
                 38.57609491820696,
                 57.38012618335242
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "162E1B0A",
             "deviceName": "MILES 500GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "330242359296",
+            "readTimes": [
+                68.9814432405771,
+                70.88726399650776,
+                79.31959363677663,
+                80.85342096582431,
+                85.88580117680765,
+                91.55184564546688,
+                91.07112395145376,
+                96.77046096188407,
+                96.04250549452418,
+                97.06969849306763,
+                88.21106882280434,
+                83.2449208666598,
+                88.6689891136722,
+                93.21347848791711,
+                91.41633820789366,
+                52.93622666411595,
+                80.72992872091815
+            ],
             "blockSize": [
                 1,
                 2,
@@ -786,33 +806,11 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 17:43:17.266585",
+            "description": "Local Fixed Disk",
             "size": "499982073856",
-            "freeSpace": "330242359296",
-            "format": "FAT32",
-            "readTimes": [
-                68.9814432405771,
-                70.88726399650776,
-                79.31959363677663,
-                80.85342096582431,
-                85.88580117680765,
-                91.55184564546688,
-                91.07112395145376,
-                96.77046096188407,
-                96.04250549452418,
-                97.06969849306763,
-                88.21106882280434,
-                83.2449208666598,
-                88.6689891136722,
-                93.21347848791711,
-                91.41633820789366,
-                52.93622666411595,
-                80.72992872091815
-            ]
+            "timeStamp": "2017-04-20 17:43:17.266585"
         },
         {
-            "serialNum": "54A98670",
-            "mount": "G:",
             "writeTimes": [
                 480.0275903409089,
                 600.513108931686,
@@ -832,9 +830,31 @@
                 82.2681850853297,
                 167.05547669175954
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Local Fixed Disk",
+            "serialNum": "54A98670",
             "deviceName": "Miles' 1TB",
+            "format": "NTFS",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "11306827776",
+            "readTimes": [
+                68.41103777559387,
+                72.87995868457493,
+                76.57209210483575,
+                80.91992908608694,
+                83.77624071270397,
+                84.96605491386009,
+                93.87260254615323,
+                94.33686863001967,
+                96.11700050558755,
+                96.64687171416088,
+                89.93558128953768,
+                88.04503266373939,
+                90.7452668441971,
+                89.9103374371463,
+                90.91850732062301,
+                55.392185544576485,
+                80.27940538809031
+            ],
             "blockSize": [
                 1,
                 2,
@@ -854,33 +874,11 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 17:47:34.480237",
+            "description": "Local Fixed Disk",
             "size": "1000202235904",
-            "freeSpace": "11306827776",
-            "format": "NTFS",
-            "readTimes": [
-                68.41103777559387,
-                72.87995868457493,
-                76.57209210483575,
-                80.91992908608694,
-                83.77624071270397,
-                84.96605491386009,
-                93.87260254615323,
-                94.33686863001967,
-                96.11700050558755,
-                96.64687171416088,
-                89.93558128953768,
-                88.04503266373939,
-                90.7452668441971,
-                89.9103374371463,
-                90.91850732062301,
-                55.392185544576485,
-                80.27940538809031
-            ]
+            "timeStamp": "2017-04-20 17:47:34.480237"
         },
         {
-            "serialNum": "54A98670",
-            "mount": "G:",
             "writeTimes": [
                 226.67992810901222,
                 567.0142290417966,
@@ -900,9 +898,31 @@
                 84.55389915845937,
                 161.6854857111327
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Local Fixed Disk",
+            "serialNum": "54A98670",
             "deviceName": "Miles' 1TB",
+            "format": "NTFS",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "11239718912",
+            "readTimes": [
+                65.22837591569589,
+                67.48208510322809,
+                73.34451008652242,
+                77.15763777937737,
+                81.43513712210236,
+                86.86218804048816,
+                89.78164154904033,
+                91.33089533683875,
+                92.13623754886137,
+                91.93074520963204,
+                79.99017544963527,
+                83.40689514463453,
+                83.47853653451759,
+                89.69719566800919,
+                89.85664631931934,
+                59.550321150065216,
+                76.58756621000566
+            ],
             "blockSize": [
                 1,
                 2,
@@ -922,59 +942,37 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 17:53:48.683291",
+            "description": "Local Fixed Disk",
             "size": "1000202235904",
-            "freeSpace": "11239718912",
-            "format": "NTFS",
-            "readTimes": [
-                65.22837591569589,
-                67.48208510322809,
-                73.34451008652242,
-                77.15763777937737,
-                81.43513712210236,
-                86.86218804048816,
-                89.78164154904033,
-                91.33089533683875,
-                92.13623754886137,
-                91.93074520963204,
-                79.99017544963527,
-                83.40689514463453,
-                83.47853653451759,
-                89.69719566800919,
-                89.85664631931934,
-                59.550321150065216,
-                76.58756621000566
-            ]
+            "timeStamp": "2017-04-20 17:53:48.683291"
         },
         {
-            "serialNum": "54A98670",
-            "mount": "G:",
             "writeTimes": [
                 65.61337799699311,
                 85.18296707860304,
                 70.18125589759966
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "54A98670",
             "deviceName": "Miles' 1TB",
+            "format": "NTFS",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "11306827776",
+            "readTimes": [
+                87.9130893784429,
+                88.33956996518694,
+                88.41124767425289
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 18:00:07.320410",
+            "description": "Local Fixed Disk",
             "size": "1000202235904",
-            "freeSpace": "11306827776",
-            "format": "NTFS",
-            "readTimes": [
-                87.9130893784429,
-                88.33956996518694,
-                88.41124767425289
-            ]
+            "timeStamp": "2017-04-20 18:00:07.320410"
         },
         {
-            "serialNum": "54A98670",
-            "mount": "G:",
             "writeTimes": [
                 569.1464788938096,
                 540.1031080232075,
@@ -994,9 +992,31 @@
                 80.71763924937412,
                 171.60230814448627
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Local Fixed Disk",
+            "serialNum": "54A98670",
             "deviceName": "Miles' 1TB",
+            "format": "NTFS",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "11306827776",
+            "readTimes": [
+                67.41943510363554,
+                71.68271728884221,
+                73.83909991442485,
+                77.35750184598548,
+                81.98122772843728,
+                89.14528047468056,
+                86.64092028911122,
+                96.0422293634063,
+                95.9634785049621,
+                96.47330149660102,
+                88.65423111919903,
+                89.29591857776813,
+                87.08400508126324,
+                88.88338148091799,
+                92.06350581217947,
+                50.52430157403887,
+                81.08905514284889
+            ],
             "blockSize": [
                 1,
                 2,
@@ -1016,191 +1036,169 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 18:02:14.039963",
+            "description": "Local Fixed Disk",
             "size": "1000202235904",
-            "freeSpace": "11306827776",
-            "format": "NTFS",
-            "readTimes": [
-                67.41943510363554,
-                71.68271728884221,
-                73.83909991442485,
-                77.35750184598548,
-                81.98122772843728,
-                89.14528047468056,
-                86.64092028911122,
-                96.0422293634063,
-                95.9634785049621,
-                96.47330149660102,
-                88.65423111919903,
-                89.29591857776813,
-                87.08400508126324,
-                88.88338148091799,
-                92.06350581217947,
-                50.52430157403887,
-                81.08905514284889
-            ]
+            "timeStamp": "2017-04-20 18:02:14.039963"
         },
         {
-            "serialNum": "54A98670",
-            "mount": "G:",
             "writeTimes": [
                 1758.5368238185513
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Local Fixed Disk",
+            "serialNum": "54A98670",
             "deviceName": "Miles' 1TB",
+            "format": "NTFS",
+            "mount": "G:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "11306827776",
+            "readTimes": [
+                86.5740704745506
+            ],
             "blockSize": [
                 32
             ],
-            "timeStamp": "2017-04-20 18:03:40.357675",
+            "description": "Local Fixed Disk",
             "size": "1000202235904",
-            "freeSpace": "11306827776",
-            "format": "NTFS",
-            "readTimes": [
-                86.5740704745506
-            ]
+            "timeStamp": "2017-04-20 18:03:40.357675"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 641.783335300301,
                 3806.765864617611,
                 3400.73298429321
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                88.30087362711019,
+                67.61033493708364,
+                89.2655117047357
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 19:16:51.082481",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                88.30087362711019,
-                67.61033493708364,
-                89.2655117047357
-            ]
+            "timeStamp": "2017-04-20 19:16:51.082481"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3747.4062084328275,
                 239.8424534591517,
                 3250.4538567397453
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                88.3899927612517,
+                84.15229396427472,
+                88.80995831711279
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 19:17:19.627667",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                88.3899927612517,
-                84.15229396427472,
-                88.80995831711279
-            ]
+            "timeStamp": "2017-04-20 19:17:19.627667"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3456.0723628785527,
                 543.0608519552426,
                 3303.305645024582
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                88.79228737128815,
+                87.2943769487152,
+                86.51231657221881
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 19:18:26.207715",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                88.79228737128815,
-                87.2943769487152,
-                86.51231657221881
-            ]
+            "timeStamp": "2017-04-20 19:18:26.207715"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3210.114904658281
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                88.15702762249293
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 19:19:35.778450",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                88.15702762249293
-            ]
+            "timeStamp": "2017-04-20 19:19:35.778450"
         },
         {
-            "serialNum": "1F6DC017",
-            "mount": "G:",
             "writeTimes": [
                 10.430708842164483
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "1F6DC017",
             "deviceName": "MILES' 64GB",
+            "format": "FAT32",
+            "mount": "G:",
+            "testName": "Short Test",
+            "freeSpace": "44922011648",
+            "readTimes": [
+                86.58362329149318
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 19:22:15.502656",
+            "description": "Removable Disk",
             "size": "61933125632",
-            "freeSpace": "44922011648",
-            "format": "FAT32",
-            "readTimes": [
-                86.58362329149318
-            ]
+            "timeStamp": "2017-04-20 19:22:15.502656"
         },
         {
-            "serialNum": "6245ABA8",
-            "mount": "I:",
             "writeTimes": [
                 7.6723104756286915
             ],
-            "testName": "Short Test",
-            "description": "Removable Disk",
+            "serialNum": "6245ABA8",
             "deviceName": "Miles 512MB",
+            "format": "FAT",
+            "mount": "I:",
+            "testName": "Short Test",
+            "freeSpace": "515604480",
+            "readTimes": [
+                81.51050417531728
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 19:48:57.915373",
+            "description": "Removable Disk",
             "size": "515629056",
-            "freeSpace": "515604480",
-            "format": "FAT",
-            "readTimes": [
-                81.51050417531728
-            ]
+            "timeStamp": "2017-04-20 19:48:57.915373"
         },
         {
-            "serialNum": "6245ABA8",
-            "mount": "I:",
             "writeTimes": [
                 0.8398229291652983,
                 0.8525714908834336,
@@ -1220,9 +1218,31 @@
                 8.065055070221163,
                 12.135018915233884
             ],
-            "testName": "All Block Sizes R/W",
-            "description": "Removable Disk",
+            "serialNum": "6245ABA8",
             "deviceName": "Miles 512MB",
+            "format": "FAT",
+            "mount": "I:",
+            "testName": "All Block Sizes R/W",
+            "freeSpace": "515604480",
+            "readTimes": [
+                66.41268074060028,
+                72.88954556718684,
+                78.19784823689557,
+                80.0436786606189,
+                75.8970717063428,
+                87.79330683902784,
+                93.14690228542912,
+                90.56907199724398,
+                87.70831411010795,
+                94.21212498474446,
+                88.06386666274928,
+                86.2972839914349,
+                87.86489284352243,
+                87.46033913012825,
+                90.7200592193007,
+                60.82964845219413,
+                83.22735093355263
+            ],
             "blockSize": [
                 1,
                 2,
@@ -1242,267 +1262,245 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 20:01:58.318549",
+            "description": "Removable Disk",
             "size": "515629056",
-            "freeSpace": "515604480",
-            "format": "FAT",
-            "readTimes": [
-                66.41268074060028,
-                72.88954556718684,
-                78.19784823689557,
-                80.0436786606189,
-                75.8970717063428,
-                87.79330683902784,
-                93.14690228542912,
-                90.56907199724398,
-                87.70831411010795,
-                94.21212498474446,
-                88.06386666274928,
-                86.2972839914349,
-                87.86489284352243,
-                87.46033913012825,
-                90.7200592193007,
-                60.82964845219413,
-                83.22735093355263
-            ]
+            "timeStamp": "2017-04-20 20:01:58.318549"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 1588.1928643714384
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                86.8754839121951
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:18:53.761898",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                86.8754839121951
-            ]
+            "timeStamp": "2017-04-20 21:18:53.761898"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3202.5090391147146
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                89.9956355843814
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:19:43.329712",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                89.9956355843814
-            ]
+            "timeStamp": "2017-04-20 21:19:43.329712"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3152.25667295767
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                87.41668972014324
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:21:14.992004",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                87.41668972014324
-            ]
+            "timeStamp": "2017-04-20 21:21:14.992004"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3332.398460880718
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                84.6510846632483
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:21:44.402543",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                84.6510846632483
-            ]
+            "timeStamp": "2017-04-20 21:21:44.402543"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3274.0744889386724
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                85.15256745654872
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:25:15.248448",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                85.15256745654872
-            ]
+            "timeStamp": "2017-04-20 21:25:15.248448"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3237.8515349143886
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                77.22980645186854
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:25:39.736518",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                77.22980645186854
-            ]
+            "timeStamp": "2017-04-20 21:25:39.736518"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3225.035169503213
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                82.21941478093227
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:27:24.018677",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                82.21941478093227
-            ]
+            "timeStamp": "2017-04-20 21:27:24.018677"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3286.5451376688357
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                82.99937919350529
+            ],
             "blockSize": [
                 4096
             ],
-            "timeStamp": "2017-04-20 21:27:47.878933",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                82.99937919350529
-            ]
+            "timeStamp": "2017-04-20 21:27:47.878933"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3674.561568923251,
                 3204.747481669298,
                 3235.700942338829
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                89.32941737365834,
+                86.2503333501776,
+                86.27063522076388
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 21:28:24.578490",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                89.32941737365834,
-                86.2503333501776,
-                86.27063522076388
-            ]
+            "timeStamp": "2017-04-20 21:28:24.578490"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3621.5775860732415,
                 3600.4434453238555,
                 3155.4044206947465
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                86.29272992909766,
+                86.8835860624749,
+                79.94423188758596
+            ],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 21:28:37.124690",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                86.29272992909766,
-                86.8835860624749,
-                79.94423188758596
-            ]
+            "timeStamp": "2017-04-20 21:28:37.124690"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 3641.316162386783,
                 3390.525903693311,
                 700.8374044657645
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [],
             "blockSize": [
                 1024,
                 2048,
                 4096
             ],
-            "timeStamp": "2017-04-20 21:28:50.215371",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": []
+            "timeStamp": "2017-04-20 21:28:50.215371"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 1291.1751388719592,
                 982.9765768189844,
@@ -1522,9 +1520,31 @@
                 139.67525799983147,
                 142.99218183874999
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                68.09622462274469,
+                72.2459659591742,
+                73.24012304284558,
+                78.05561295185402,
+                85.49578799578788,
+                86.32812413472288,
+                86.53623254911987,
+                86.28531070319218,
+                81.15268446418479,
+                94.2937297442464,
+                81.3686858071851,
+                79.25711285562566,
+                85.54001169143123,
+                91.3812919445056,
+                92.77670211077647,
+                30.1160831256772,
+                77.35898618395764
+            ],
             "blockSize": [
                 1,
                 2,
@@ -1544,52 +1564,278 @@
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 21:29:32.441631",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
-            "format": "FAT32",
-            "readTimes": [
-                68.09622462274469,
-                72.2459659591742,
-                73.24012304284558,
-                78.05561295185402,
-                85.49578799578788,
-                86.32812413472288,
-                86.53623254911987,
-                86.28531070319218,
-                81.15268446418479,
-                94.2937297442464,
-                81.3686858071851,
-                79.25711285562566,
-                85.54001169143123,
-                91.3812919445056,
-                92.77670211077647,
-                30.1160831256772,
-                77.35898618395764
-            ]
+            "timeStamp": "2017-04-20 21:29:32.441631"
         },
         {
-            "serialNum": "0C7A9C9B",
-            "mount": "D:",
             "writeTimes": [
                 142.61934531614978,
                 144.08216281230705
             ],
-            "testName": "Short Test",
-            "description": "Local Fixed Disk",
+            "serialNum": "0C7A9C9B",
             "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23027908608",
+            "readTimes": [
+                57.20513537494798,
+                81.63217999167702
+            ],
             "blockSize": [
                 32768,
                 65536
             ],
-            "timeStamp": "2017-04-20 21:30:00.934614",
+            "description": "Local Fixed Disk",
             "size": "24000856064",
-            "freeSpace": "23027908608",
+            "timeStamp": "2017-04-20 21:30:00.934614"
+        },
+        {
+            "writeTimes": [
+                132.9186064357702,
+                134.98797236675068
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
             "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
             "readTimes": [
-                57.20513537494798,
-                81.63217999167702
-            ]
+                59.85638117734875,
+                67.03696897573808
+            ],
+            "blockSize": [
+                32768,
+                65536
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:10:18.642122"
+        },
+        {
+            "writeTimes": [
+                1388.8539779645414,
+                1511.7007040204833,
+                2276.4917199684596,
+                2840.9680711473616,
+                3080.9439108264983,
+                331.6423668236232,
+                3429.1094132657913,
+                3286.268006464673,
+                3421.382690760002,
+                3552.1487490315526,
+                3092.8839743929866,
+                3181.1174445970278,
+                3147.4620758348447,
+                135.34143217399443,
+                139.28796080972876
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                68.73348236134443,
+                76.0278341887645,
+                77.09658338954816,
+                88.28930467109328,
+                90.18233203119122,
+                90.03340525705414,
+                92.19043473735508,
+                86.18662593614653,
+                86.14030331071959,
+                85.51167073561395,
+                84.7262003497974,
+                78.44380720557042,
+                88.62409167037133,
+                30.583255109876223,
+                68.93908102806135
+            ],
+            "blockSize": [
+                4,
+                8,
+                16,
+                32,
+                64,
+                128,
+                256,
+                512,
+                1024,
+                2048,
+                4096,
+                8192,
+                16384,
+                32768,
+                65536
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:12:51.020367"
+        },
+        {
+            "writeTimes": [
+                1099.4658642091078
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                54.09667675952602
+            ],
+            "blockSize": [
+                2
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:13:13.701241"
+        },
+        {
+            "writeTimes": [
+                1220.7868688134333
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                53.38427760671801
+            ],
+            "blockSize": [
+                4
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:13:25.430791"
+        },
+        {
+            "writeTimes": [
+                830.767263063597
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                50.19678624681582
+            ],
+            "blockSize": [
+                1
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:13:38.515931"
+        },
+        {
+            "writeTimes": [
+                908.080651174365,
+                1105.4275219470035,
+                1221.0609866268821,
+                1141.3348431749846
+            ],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                49.91039648381996,
+                53.040222981139046,
+                57.139673486742176,
+                59.66527042915972
+            ],
+            "blockSize": [
+                1,
+                2,
+                4,
+                8
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:13:53.043959"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "0C7A9C9B",
+            "deviceName": "SHARE",
+            "format": "FAT32",
+            "mount": "D:",
+            "testName": "Short Test",
+            "freeSpace": "23237656576",
+            "readTimes": [
+                64.55478246609923,
+                70.38341579643463,
+                77.11753450155693,
+                74.42193832035494
+            ],
+            "blockSize": [
+                1,
+                2,
+                4,
+                8
+            ],
+            "description": "Local Fixed Disk",
+            "size": "24000856064",
+            "timeStamp": "2017-04-24 21:15:00.443449"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "1B191E7A",
+            "deviceName": "USB DISK",
+            "format": "FAT32",
+            "timeStamp": "2017-04-24 22:32:10.234514",
+            "testName": "Short Test",
+            "freeSpace": "10663559168",
+            "readTimes": [
+                66.97082643818598,
+                69.53002181636961,
+                73.51734068608188,
+                79.9848126465502
+            ],
+            "blockSize": [
+                1,
+                2,
+                4,
+                8
+            ],
+            "description": "Removable Disk",
+            "size": "30985011200",
+            "mount": "G:"
+        },
+        {
+            "writeTimes": [],
+            "serialNum": "6245ABA8",
+            "deviceName": "Miles 512MB",
+            "format": "FAT",
+            "timeStamp": "2017-04-24 22:33:45.859887",
+            "testName": "Short Test",
+            "freeSpace": "515604480",
+            "blockSize": [
+                1,
+                2,
+                4,
+                8
+            ],
+            "readTimes": [
+                64.17583237916242,
+                68.64665618427708,
+                74.57816750318196,
+                78.92960467756234
+            ],
+            "description": "Removable Disk",
+            "size": "515629056",
+            "mount": "I:"
         }
     ]
 }
