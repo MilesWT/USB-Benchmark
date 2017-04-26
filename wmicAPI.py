@@ -1,8 +1,9 @@
 import os
 import time
 import subprocess
+import random
 
-
+mW=[]
 def getDevices():
     RawDevices = subprocess.check_output(
         "wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem, freespace /format:list",
@@ -34,28 +35,53 @@ def writeFile(letterDrive, fileSize, blockSize):  # inputs: str letterDrive to a
     numWrites = (fileSize * 1024) / blockSize
     data = bytearray(1024 * blockSize)  # create the array for the data. Must be strictly sized
     for byte in range(len(data)):
-        data[byte] = 0xaa  # allocate the data to the same values. hex aa is alternating bits
+        data[byte] = random.randint(0x0, 0xff)  # allocate the data to the same values. hex aa is alternating bits
     with open('%s:\output_file' % letterDrive, 'bw+') as fout:
         fout.seek(0)
         start = time.clock()
         for i in range(int(numWrites)):
             fout.write(data)  # write to file
+            os.fsync(fout)
         end = time.clock()
         fout.truncate()
+        fout.flush()
+        os.fsync(fout)
+        fout.close()
+
+    del data
     timeTaken = end - start
     return (timeTaken)  # return time taken
 
 
-def readFile(fileLocation, blockSize):  # inputs: str full fileLocation to access. Size of read
+def readFile(fileLocation, blockSize,i):  # inputs: str full fileLocation to access. Size of read
     fileSize = os.stat(fileLocation).st_size
     numReads = fileSize / (blockSize * 1024)
-    with open(fileLocation, 'r') as fin:  # open the file
-        with open('output_file_test', 'w+') as fout:
-            start = time.clock()
-            for i in range(int(numReads)):
-                fout.write(fin.read(1024 * blockSize))  # read in up to the blockSize in kB
-            end = time.clock()
-    timeTaken = end - start
+    filename = 'output_file_test' + str(i)
+    #mW.addText(numReads)
+    print(numReads)
+    try:
+        with open(fileLocation, 'rb') as fin:  # open the file
+            with open(filename, 'wb+') as fout:
+                start = time.clock()
+                for i in range(int(numReads)):
+                    #fout.write(fin.read(1024 * blockSize))  # read in up to the blockSize in kB
+                    fin.read(1024 * blockSize)
+                    #fout.flush()
+                    #os.fsync(fout)
+                    #fin.flush()
+                end = time.clock()
+            fin.flush()
+        timeTaken = end - start
+        fin.close()
+        fout.close()
+    except Exception as e:
+        print(str(e))
+
+    try:
+        print("written")
+        #os.remove(filename)
+    except:
+        print("file not found")
     print(timeTaken)
     return (timeTaken)  # return time taken
 
@@ -66,6 +92,7 @@ def benchmarkDevice(mainWindow, app, letterDrive, smallBlockSize, bigBlockSize, 
     writeTimes = []
     readTimes = []
     blockSizes = []
+    mW = mainWindow
     for i in range(smallBlockSize, bigBlockSize + 1):
         if write:
             if read:
@@ -81,6 +108,7 @@ def benchmarkDevice(mainWindow, app, letterDrive, smallBlockSize, bigBlockSize, 
             # os.remove('%s:\output_file' % letterDrive)
         elif writeflag:
             mainWindow.addText("Writing a Temporary File for Reading Tests")
+            app.processEvents()
             writeFile(letterDrive, fileSize, 2 ** 8)
             writeflag = False
         if read:
@@ -92,9 +120,10 @@ def benchmarkDevice(mainWindow, app, letterDrive, smallBlockSize, bigBlockSize, 
                     (i - smallBlockSize + 1)) + " of " + str((bigBlockSize - smallBlockSize + 1)) + ")"
             mainWindow.addText(tempString)
             app.processEvents()
-            readTimes.append(fileSize / (readFile('%s:\output_file' % letterDrive, 2 ** i)))
+            readTimes.append(fileSize / (readFile('%s:\output_file' % letterDrive, 2 ** i, i)))#'%s:Iron Man 2008.720p.BrRip.x264.YIFY.mp4'
         blockSizes.append(2 ** i)
     os.remove('%s:\output_file' % letterDrive)
+
     # if(read and write):
     #     return(blockSizes,writeTimes,readTimes)
     # elif(read):

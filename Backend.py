@@ -200,6 +200,7 @@ class InputUi(QtWidgets.QMainWindow, Benchmarking_input.Ui_MainWindow):
             serial_num = str(self.devices['VolumeSerialNumber'][int(self.ui.comboBox.currentIndex() - 2)])
             self.GUI_out = OutputUi()
             self.addText("\r\n " + self.test_name + ": Test Run Beginning")
+            app.processEvents()
             self.GUI_out.setParameters(serial_num)
             self.GUI_out.show()
             self.addText(self.test_name + ": Test Run Completed\r\n")
