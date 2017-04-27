@@ -2,8 +2,9 @@ import os
 import time
 import subprocess
 import random
+import math
+import traceback
 
-mW=[]
 def getDevices():
     RawDevices = subprocess.check_output(
         "wmic logicaldisk where drivetype=2 get deviceid, volumename, description, volumeserialnumber, Size, Filesystem, freespace /format:list",
@@ -60,26 +61,30 @@ def readFile(fileLocation, blockSize,i):  # inputs: str full fileLocation to acc
     #mW.addText(numReads)
     print(numReads)
     try:
-        with open(fileLocation, 'rb') as fin:  # open the file
-            with open(filename, 'wb+') as fout:
-                start = time.clock()
-                for i in range(int(numReads)):
+        start = time.clock()
+        with open(fileLocation, "rb",1024 * blockSize) as fin:  # open the file
+            with open(filename, "wb+", 1024 * blockSize) as fout:
+                for i in range(math.ceil(numReads)):
                     #fout.write(fin.read(1024 * blockSize))  # read in up to the blockSize in kB
-                    fin.read(1024 * blockSize)
-                    #fout.flush()
-                    #os.fsync(fout)
-                    #fin.flush()
-                end = time.clock()
-            fin.flush()
-        timeTaken = end - start
+                    data = fin.read(1024 * blockSize)
+                    fin.flush()
+                    #os.fsync(fin)
+                    #print(data)
+                    fin.flush()
+                    fout.write(data)
+                    fout.flush()
+                    os.fsync(fout.fileno())
+        end = time.clock()
         fin.close()
-        fout.close()
+        #print(data)
+        timeTaken = end - start
     except Exception as e:
         print(str(e))
+        traceback.print_exc()
 
     try:
         print("written")
-        #os.remove(filename)
+        os.remove(filename)
     except:
         print("file not found")
     print(timeTaken)
